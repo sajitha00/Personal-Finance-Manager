@@ -52,7 +52,7 @@ class User extends StatelessWidget {
                       "Isuru Jayawardana",
                       style: TextStyle(
                           color: Color.fromRGBO(0, 0, 0, 1),
-                          fontSize: 18.0,
+                          fontSize: 16.0,
                           fontFamily: 'Poppins',
                           fontWeight: FontWeight.w400),
                     ),
@@ -66,7 +66,7 @@ class User extends StatelessWidget {
                     "Email",
                     style: TextStyle(
                         color: Color.fromRGBO(106, 106, 106, 1),
-                        fontSize: 18.0,
+                        fontSize: 16.0,
                         fontFamily: 'Poppins',
                         fontWeight: FontWeight.w400),
                   ),
@@ -84,7 +84,7 @@ class User extends StatelessWidget {
                         "Adress",
                         style: TextStyle(
                             color: Color.fromRGBO(106, 106, 106, 1),
-                            fontSize: 18,
+                            fontSize: 16,
                             fontFamily: 'Poppins',
                             fontWeight: FontWeight.w400),
                       ),
@@ -102,7 +102,7 @@ class User extends StatelessWidget {
                         "Mobile",
                         style: TextStyle(
                             color: Color.fromRGBO(106, 106, 106, 1),
-                            fontSize: 18.0,
+                            fontSize: 16.0,
                             fontFamily: 'Poppins',
                             fontWeight: FontWeight.w400),
                       ),
