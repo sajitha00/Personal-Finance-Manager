@@ -1,4 +1,5 @@
 import 'package:cashapp/components/BottomMainNavigationBar.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class User extends StatelessWidget {
@@ -51,7 +52,7 @@ class User extends StatelessWidget {
                       "Isuru Jayawardana",
                       style: TextStyle(
                           color: Color.fromRGBO(0, 0, 0, 1),
-                          fontSize: 16.0,
+                          fontSize: 18.0,
                           fontFamily: 'Poppins',
                           fontWeight: FontWeight.w400),
                     ),
@@ -61,54 +62,54 @@ class User extends StatelessWidget {
                   ),
                   Row(
                     children: [
-                      Text("Email  -",
+                    Text(
+                    "Email",
                     style: TextStyle(
                         color: Color.fromRGBO(106, 106, 106, 1),
-                        fontSize: 16.0,
+                        fontSize: 18.0,
                         fontFamily: 'Poppins',
                         fontWeight: FontWeight.w400),
                   ),
-                      Expanded(
-                          child: TextField(
-                      )
-                      )
                     ],
                   ),
+                  Container(
+                    child: TextField(),
+                  ),
                   SizedBox(
-                    height: 8.0,
+                    height: 30.0,
                   ),
                   Row(
                     children: [
-                      Text("Address  -",
+                      Text(
+                        "Adress",
                         style: TextStyle(
                             color: Color.fromRGBO(106, 106, 106, 1),
-                            fontSize: 16.0,
+                            fontSize: 18,
                             fontFamily: 'Poppins',
                             fontWeight: FontWeight.w400),
                       ),
-                      Expanded(
-                          child: TextField(
-                          )
-                      )
                     ],
                   ),
+                  Container(
+                    child: TextField(),
+                  ),
                   SizedBox(
-                    height: 8.0,
+                    height: 30.0,
                   ),
                   Row(
                     children: [
-                      Text("Mobile  -",
+                      Text(
+                        "Mobile",
                         style: TextStyle(
                             color: Color.fromRGBO(106, 106, 106, 1),
-                            fontSize: 16.0,
+                            fontSize: 18.0,
                             fontFamily: 'Poppins',
                             fontWeight: FontWeight.w400),
                       ),
-                      Expanded(
-                          child: TextField(
-                          )
-                      )
                     ],
+                  ),
+                  Container(
+                    child: TextField(),
                   ),
                   SizedBox(
                     height: 50.0,

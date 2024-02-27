@@ -10,7 +10,7 @@ void main() {
   runApp(
     MaterialApp(
       debugShowCheckedModeBanner: false,
-      home:CreditScore(),
+      home:User(),
     ),
   );
 }
