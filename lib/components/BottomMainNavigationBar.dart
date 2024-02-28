@@ -1,3 +1,9 @@
+import 'package:cashapp/Screens/addDetails.dart';
+import 'package:cashapp/Screens/debts.dart';
+import 'package:cashapp/Screens/details.dart';
+import 'package:cashapp/Screens/home.dart';
+import 'package:cashapp/Screens/report.dart';
+import 'package:cashapp/Screens/user.dart';
 import 'package:flutter/material.dart';
 
 class BottomMainNavigationBar extends StatelessWidget {
@@ -38,66 +44,111 @@ class BottomMainNavigationBar extends StatelessWidget {
             selectedFontSize: 0,
             items: [
               BottomNavigationBarItem(
-                icon: Container(
-                  padding: EdgeInsets.zero,
-                  margin: EdgeInsets.zero,
-                  child: Image.asset(
-                    "images/Home.png",
-                    width: 40,
-                    height: 40,
+                icon: InkWell(
+                  onTap: (){
+                    Navigator.of(context).push(MaterialPageRoute(builder: (_){
+                      return HomeScreen();
+                    }
+                    )
+                    );
+                  },
+                  child: Container(
+                    padding: EdgeInsets.zero,
+                    margin: EdgeInsets.zero,
+                    child: Image.asset(
+                      "images/Home.png",
+                      width: 40,
+                      height: 40,
+                    ),
                   ),
                 ),
                 // size: 10,
-
                 label: ("Home"),
               ),
               BottomNavigationBarItem(
-                icon: Container(
-                  padding: EdgeInsets.zero,
-                  margin: EdgeInsets.zero,
-                  child: Image.asset(
-                    "images/BarChart.png",
-                    width: 40,
-                    height: 40,
+                icon: InkWell(
+                  onTap: (){
+                    Navigator.of(context).push(MaterialPageRoute(builder: (_){
+                      return ReportScreen();
+                    }
+                    )
+                    );
+                  },
+                  child: Container(
+                    padding: EdgeInsets.zero,
+                    margin: EdgeInsets.zero,
+                    child: Image.asset(
+                      "images/BarChart.png",
+                      width: 40,
+                      height: 40,
+                    ),
                   ),
                 ),
                 label: ("BarChart"),
               ),
               BottomNavigationBarItem(
-                icon: Container(
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(30),
-                      color: Color(0xff92D899)),
-                  padding: EdgeInsets.all(5),
-                  margin: EdgeInsets.zero,
-                  child: Image.asset(
-                    "images/Debt.png",
-                    width: 40,
-                    height: 40,
+                icon: InkWell(
+                  onTap: (){
+                    Navigator.of(context).push(MaterialPageRoute(builder: (_){
+                      return MyDebts();
+                    }
+                    )
+                    );
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(30),
+                        color: Color(0xff92D899)
+                    ),
+                    padding: EdgeInsets.all(5),
+                    margin: EdgeInsets.zero,
+                    child: Image.asset(
+                      "images/Debt.png",
+                      width: 40,
+                      height: 40,
+                    ),
                   ),
                 ),
                 label: ("Debt"),
               ),
               BottomNavigationBarItem(
-                icon: Container(
-                  padding: EdgeInsets.zero,
-                  margin: EdgeInsets.zero,
-                  child: Image.asset(
-                    "images/Pencil.png",
-                    width: 40,
-                    height: 40,
+                icon: InkWell(
+                  onTap: (){
+                    Navigator.of(context).push(MaterialPageRoute(builder: (_){
+                      return AddDeatails();
+                    }
+                    )
+                    );
+                  },
+                  child: Container(
+                    padding: EdgeInsets.zero,
+                    margin: EdgeInsets.zero,
+                    child: Image.asset(
+                      "images/Pencil.png",
+                      width: 40,
+                      height: 40,
+                    ),
                   ),
                 ),
                 label: ("Pencil"),
               ),
               BottomNavigationBarItem(
-                icon: Container(
-                  padding: EdgeInsets.zero,
-                  margin: EdgeInsets.zero,
-                  child: Image.asset(
-                    "images/MaleUser.png",
-                    width: 40,
-                    height: 40,
+                icon: InkWell(
+                  onTap: (){
+                    Navigator.of(context).push(MaterialPageRoute(builder: (_){
+                      return User();
+                    }
+                    )
+                    );
+                  },
+                  child: Container(
+                    padding: EdgeInsets.zero,
+                    margin: EdgeInsets.zero,
+                    child: Image.asset(
+                      "images/MaleUser.png",
+                      width: 40,
+                      height: 40,
+                    ),
                   ),
                 ),
                 label: ("User"),

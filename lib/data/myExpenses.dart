@@ -7,7 +7,7 @@ class MyExpenses {
     final List<MyExpenses> chartData = [
       MyExpenses(expenseName: "Debt", expenceValue: 15),
       MyExpenses(expenseName: "Report", expenceValue: 15),
-      MyExpenses(expenseName: "Debt", expenceValue: 15),
+      MyExpenses(expenseName: "Settings", expenceValue: 15),
       MyExpenses(expenseName: "Credit", expenceValue: 15),
       MyExpenses(expenseName: "Visualize", expenceValue: 15),
       MyExpenses(expenseName: "Budget", expenceValue: 15),

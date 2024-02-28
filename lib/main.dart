@@ -12,7 +12,7 @@ void main() {
   runApp(
     MaterialApp(
       debugShowCheckedModeBanner: false,
-      home:ReportScreen(),
+      home:HomeScreen(),
     ),
   );
 }
