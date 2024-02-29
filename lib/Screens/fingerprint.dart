@@ -9,7 +9,7 @@ class FingerPrint extends StatelessWidget {
     return Scaffold(
         body: Center(
         child: Center(
-          child: Stack(
+          child: Column(
             children: [
               Image(
                 image: AssetImage("images/Rectangle2.png"),
@@ -78,18 +78,22 @@ class FingerPrint extends StatelessWidget {
                             ],
                           ),
                           SizedBox(
-                            height: 24.0,
+                            height: 54.0,
                           ),
-                          Container(
-                            margin: EdgeInsets.only(top: 20.0),
-                            child: Text(
-                              "Set your finger on the scanner",
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 16.0,
-                                  fontFamily: 'Poppins',
-                                  fontWeight: FontWeight.w400),
-                            ),
+                          Column(
+                            children: [
+                              Container(
+                                margin: EdgeInsets.only(top: 20.0),
+                                child: Text(
+                                  "Set your finger on the scanner",
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 16.0,
+                                      fontFamily: 'Poppins',
+                                      fontWeight: FontWeight.w400),
+                                ),
+                              ),
+                            ],
                           ),
                         ],
                       ),
