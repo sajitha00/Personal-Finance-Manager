@@ -4,15 +4,21 @@ import 'package:cashapp/Screens/debts.dart';
 import 'package:cashapp/Screens/fingerprint.dart';
 import 'package:cashapp/Screens/report.dart';
 import 'package:cashapp/Screens/user.dart';
+import 'package:cashapp/Screens/welcome.dart';
 import 'package:flutter/material.dart';
 import 'package:cashapp/Screens/details.dart';
 import 'package:cashapp/Screens/home.dart';
+import 'package:another_flutter_splash_screen/another_flutter_splash_screen.dart';
 
 void main() {
   runApp(
     MaterialApp(
       debugShowCheckedModeBanner: false,
-      home:FingerPrint(),
+      home:FlutterSplashScreen(
+        duration:  const Duration(milliseconds: 2000),
+        nextScreen: HomeScreen(),
+        splashScreenBody: Welcome(),
+      ),
     ),
   );
 }

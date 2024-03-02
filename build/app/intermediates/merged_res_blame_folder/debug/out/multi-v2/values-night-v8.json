@@ -4,7 +4,7 @@
             "outputFile": "com.example.ncafe.app-mergeDebugResources-9:/values-night-v8/values-night-v8.xml",
             "map": [
                 {
-                    "source": "F:\\Computing Group Project\\Personal-Finance-Manager\\android\\app\\src\\main\\res\\values-night\\styles.xml",
+                    "source": "F:\\Computing porject final\\Personal-Finance-Manager\\android\\app\\src\\main\\res\\values-night\\styles.xml",
                     "from": {
                         "startLines": "3,14",
                         "startColumns": "4,4",

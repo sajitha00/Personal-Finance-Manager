@@ -13,8 +13,8 @@
 13         to allow setting breakpoints, to provide hot reload, etc.
 14    -->
 15    <uses-permission android:name="android.permission.INTERNET" />
-15-->F:\Computing Group Project\Personal-Finance-Manager\android\app\src\debug\AndroidManifest.xml:6:5-66
-15-->F:\Computing Group Project\Personal-Finance-Manager\android\app\src\debug\AndroidManifest.xml:6:22-64
+15-->F:\Computing porject final\Personal-Finance-Manager\android\app\src\debug\AndroidManifest.xml:6:5-66
+15-->F:\Computing porject final\Personal-Finance-Manager\android\app\src\debug\AndroidManifest.xml:6:22-64
 16
 17    <application
 18        android:name="android.app.Application"
@@ -22,7 +22,7 @@
 19-->[androidx.core:core:1.6.0] C:\Users\sajit\.gradle\caches\transforms-3\168e459aae59caaab0d2c703cf9d67ab\transformed\core-1.6.0\AndroidManifest.xml:24:18-86
 20        android:debuggable="true"
 21        android:icon="@mipmap/ic_launcher"
-22        android:label="ncafe" >
+22        android:label="CashApp" >
 23        <activity
 24            android:name="com.example.ncafe.MainActivity"
 25            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"

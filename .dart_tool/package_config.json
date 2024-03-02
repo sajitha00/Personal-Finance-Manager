@@ -2,6 +2,12 @@
   "configVersion": 2,
   "packages": [
     {
+      "name": "another_flutter_splash_screen",
+      "rootUri": "file:///C:/Users/sajit/AppData/Local/Pub/Cache/hosted/pub.dev/another_flutter_splash_screen-1.2.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.18"
+    },
+    {
       "name": "async",
       "rootUri": "file:///C:/Users/sajit/AppData/Local/Pub/Cache/hosted/pub.dev/async-2.11.0",
       "packageUri": "lib/",
@@ -200,7 +206,7 @@
       "languageVersion": "3.2"
     }
   ],
-  "generated": "2024-02-28T16:40:19.669394Z",
+  "generated": "2024-03-02T18:32:15.548883Z",
   "generator": "pub",
   "generatorVersion": "3.3.0"
 }
