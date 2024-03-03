@@ -7,6 +7,7 @@ class User extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String defualtImage = "images/user.png";
     return Scaffold(
       bottomNavigationBar: BottomMainNavigationBar(),
       body: SingleChildScrollView(
@@ -36,13 +37,24 @@ class User extends StatelessWidget {
                   SizedBox(
                     height: 80.0,
                   ),
-                  TextButton(
-                    onPressed: (){},
-                    child: Center(
-                      child: Image(
-                          image: AssetImage("images/user.png"),
+                  IconButton(
+                    onPressed: () => showDialog<String>(
+                      context: context,
+                      builder: (BuildContext context) => AlertDialog(
+                        title: const Text('Change Profile Image'),
+                        actions: <Widget>[
+                          TextButton(
+                            onPressed: () => Navigator.pop(context, 'Cancel'),
+                            child: const Text('Cancel'),
+                          ),
+                          TextButton(
+                            onPressed: () => Navigator.pop(context, 'OK'),
+                            child: const Text('Browse'),
+                          ),
+                        ],
                       ),
                     ),
+                   icon:Image.asset(defualtImage),
                   ),
                   SizedBox(
                     height: 5.0,
