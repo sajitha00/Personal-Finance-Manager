@@ -38,6 +38,12 @@ dependencies:
   fl_chart: ^0.66.2
   syncfusion_flutter_charts: ^24.2.7+1
   another_flutter_splash_screen: ^1.2.0
+  flutter_launcher_icons: ^0.13.1
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "images/Icon.png"
 
 dev_dependencies:
   flutter_test:

@@ -22,7 +22,7 @@
 19-->[androidx.core:core:1.6.0] C:\Users\sajit\.gradle\caches\transforms-3\168e459aae59caaab0d2c703cf9d67ab\transformed\core-1.6.0\AndroidManifest.xml:24:18-86
 20        android:debuggable="true"
 21        android:icon="@mipmap/ic_launcher"
-22        android:label="ncafe" >
+22        android:label="Money Way" >
 23        <activity
 24            android:name="com.example.ncafe.MainActivity"
 25            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
