@@ -3,6 +3,7 @@ import "package:cashapp/components/CustomizedAppBar.dart";
 import 'package:cashapp/components/PrimaryContainer.dart';
 import 'package:cashapp/components/PrimaryTextComponent.dart';
 import 'package:cashapp/components/SecondaryContainer.dart';
+import 'package:cashapp/components/homeMenuWidget.dart';
 import "package:flutter/material.dart";
 import 'package:cashapp/components/GetSectionData.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
@@ -45,7 +46,13 @@ class _HomeScreenState extends State<HomeScreen> {
                 padding: EdgeInsets.only(right: 25.0, left: 25.0, bottom: 25.0),
                 child: Column(
                   children: [
-                    PieChart(chartData: _chartData),
+                    SizedBox(
+                      height: 30.0,
+                    ),
+                    HomeMenu(),
+                    SizedBox(
+                      height: 20.0,
+                    ),
                     PrimaryContainer(
                       componentWidgets: Column(
                         children: [
@@ -80,7 +87,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                     SizedBox(
-                      height: 10.0,
+                      height: 15.0,
                     ),
                     SecondaryContainer(
                       componentWidgets: Column(

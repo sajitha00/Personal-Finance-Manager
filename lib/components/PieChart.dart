@@ -44,7 +44,7 @@ class PieChart extends StatelessWidget {
           dataSource: _chartData,
           xValueMapper: (MyExpenses data, _) => data.expenseName,
           yValueMapper: (MyExpenses data, _) => data.expenceValue,
-          dataLabelMapper: (MyExpenses data, _) => "${data.expenseName}",
+         dataLabelMapper: (MyExpenses data, _) => "${data.expenseName}",
         ),
       ],
     );

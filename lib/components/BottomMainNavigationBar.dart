@@ -96,10 +96,6 @@ class BottomMainNavigationBar extends StatelessWidget {
                     );
                   },
                   child: Container(
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(30),
-                        color: Color(0xff92D899)
-                    ),
                     padding: EdgeInsets.all(5),
                     margin: EdgeInsets.zero,
                     child: Image.asset(
