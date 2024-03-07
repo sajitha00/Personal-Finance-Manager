@@ -2,7 +2,7 @@
 ![Sign In Screen](https://github.com/sajitha00/Personal-Finance-Manager/assets/115799454/1d050fe3-633c-4d20-85b4-6b6bb2595a65)
 ![Sign In Screen pin](https://github.com/sajitha00/Personal-Finance-Manager/assets/115799454/2cfd1a9f-95b4-4141-a291-60dc9492af0a)
 
-**### Report Screen**
+### **Report Screen**
 ![Report](https://github.com/sajitha00/Personal-Finance-Manager/assets/115799454/0421a8bf-38ee-4542-a85f-64105730cff1)
 
 ### **Home Screen**
