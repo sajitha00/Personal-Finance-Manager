@@ -11,8 +11,8 @@
 ### **Debts Screen**
 ![Debts](https://github.com/sajitha00/Personal-Finance-Manager/assets/115799454/54ad39a0-89cd-4292-93bd-3b0c40218d81)
 
-**### Credit Screen**
+### **Credit Screen**
 ![Credit Score](https://github.com/sajitha00/Personal-Finance-Manager/assets/115799454/c20de120-2290-456a-8842-83d0d13e0caa)
 
-**### Budget Screen**
+### **Budget Screen**
 ![Budget](https://github.com/sajitha00/Personal-Finance-Manager/assets/115799454/84ec0eac-2a22-4bc9-8697-bc89a207e11e)
