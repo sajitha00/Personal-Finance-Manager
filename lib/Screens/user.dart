@@ -18,7 +18,8 @@ class User extends StatelessWidget {
               width: MediaQuery.of(context).size.width,
               fit: BoxFit.cover,
             ),
-            SafeArea(child: Padding(
+            SafeArea(
+              child: Padding(
               padding: const EdgeInsets.all(25.0),
               child: Column(
                 children: [

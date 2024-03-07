@@ -5,6 +5,7 @@ import 'package:cashapp/components/PrimaryTextComponent.dart';
 import 'package:cashapp/components/CustomizedAppBar.dart';
 import 'package:cashapp/components/PrimaryContainer.dart';
 import 'package:cashapp/components/SecondaryContainer.dart';
+import 'package:flutter/widgets.dart';
 
 
 class MyDebts extends StatelessWidget {
@@ -122,7 +123,7 @@ class MyDebts extends StatelessWidget {
                                             "Rs",
                                             style: TextStyle(
                                                 color: Color.fromRGBO(0, 0, 0, 1),
-                                                fontSize: 24.0,
+                                                fontSize: 25.0,
                                                 fontFamily: 'Poppins',
                                                 fontWeight: FontWeight.w600),
                                           ),
@@ -130,13 +131,18 @@ class MyDebts extends StatelessWidget {
                                             width: 5,
 
                                           ),
-                                          Text(
-                                            "0",
-                                            style: TextStyle(
-                                                color: Color.fromRGBO(0, 0, 0, 1),
-                                                fontSize: 40.0,
-                                                fontFamily: 'Poppins',
-                                                fontWeight: FontWeight.w400),
+                                          SizedBox(
+                                            width: 100,
+                                            height:60,
+                                            child: TextField(
+                                              style: TextStyle(color: Colors.black,fontSize: 22.0,fontWeight:FontWeight.w600),
+                                              keyboardType: TextInputType.number,
+                                              decoration: InputDecoration(
+                                                hintText: "0",
+                                                hintStyle: TextStyle(fontSize: 22.0, color: Colors.black),
+                                                border: InputBorder.none,
+                                              ),
+                                            ),
                                           ),
                                         ],
                                       ),
@@ -263,8 +269,6 @@ class MyDebts extends StatelessWidget {
                             ],
                           ),
                         ),
-
-
                         ],
                       )
                     ],

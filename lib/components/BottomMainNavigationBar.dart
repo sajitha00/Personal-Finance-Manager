@@ -111,7 +111,7 @@ class BottomMainNavigationBar extends StatelessWidget {
                 icon: InkWell(
                   onTap: (){
                     Navigator.of(context).push(MaterialPageRoute(builder: (_){
-                      return AddDeatails();
+                      return AddDetailsScreen();
                     }
                     )
                     );
