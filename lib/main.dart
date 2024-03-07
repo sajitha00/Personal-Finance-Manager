@@ -8,6 +8,7 @@ import 'package:cashapp/Screens/welcome.dart';
 import 'package:flutter/material.dart';
 import 'package:cashapp/Screens/details.dart';
 import 'package:cashapp/Screens/home.dart';
+import 'package:cashapp/Screens/Pin.dart';
 import 'package:another_flutter_splash_screen/another_flutter_splash_screen.dart';
 
 void main() {
@@ -16,7 +17,7 @@ void main() {
       debugShowCheckedModeBanner: false,
       home:FlutterSplashScreen(
         duration:  const Duration(milliseconds: 2000),
-        nextScreen: HomeScreen(),
+        nextScreen:HomeScreen(),
         splashScreenBody: Welcome(),
       ),
     ),
