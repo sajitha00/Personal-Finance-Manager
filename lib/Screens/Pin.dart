@@ -10,7 +10,7 @@ class PinLogin extends StatelessWidget {
   Widget build(BuildContext context) {
     final TextEditingController pinController = TextEditingController();
 
-    void checkPinAndNavigate(String pin) {
+    void checkPinAndNavigate(BuildContext context, String pin) {
       if (pin == "0000") {
         Navigator.push(
           context,
@@ -18,7 +18,9 @@ class PinLogin extends StatelessWidget {
         );
       } else {
         // Handle incorrect PIN
-        print("Incorrect PIN");
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Incorrect PIN')),
+        );
       }
     }
 
@@ -81,8 +83,8 @@ class PinLogin extends StatelessWidget {
                             ),
                           ),
                           ElevatedButton(
-                            onPressed: () =>
-                                checkPinAndNavigate(pinController.text),
+                            onPressed: () => checkPinAndNavigate(
+                                context, pinController.text),
                             child: Text('Submit'),
                           ),
                         ],
