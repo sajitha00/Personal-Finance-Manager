@@ -15,9 +15,9 @@ void main() {
   runApp(
     MaterialApp(
       debugShowCheckedModeBanner: false,
-      home:FlutterSplashScreen(
-        duration:  const Duration(milliseconds: 2000),
-        nextScreen:HomeScreen(),
+      home: FlutterSplashScreen(
+        duration: const Duration(milliseconds: 200),
+        nextScreen: PinLogin(),
         splashScreenBody: Welcome(),
       ),
     ),
