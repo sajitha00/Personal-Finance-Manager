@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'home.dart'; // Import the HomeScreen class from home.dart
+import 'package:cashapp/Screens/Signup.dart'; // Import the SignupPage class from Signup.dart
 
 class PinLogin extends StatelessWidget {
   const PinLogin({super.key});
@@ -86,6 +87,21 @@ class PinLogin extends StatelessWidget {
                             onPressed: () => checkPinAndNavigate(
                                 context, pinController.text),
                             child: Text('Submit'),
+                          ),
+                          SizedBox(
+                              height: 10.0), // Add some space between buttons
+                          TextButton(
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => Signup()),
+                              );
+                            },
+                            child: Text(
+                              "Don't have an account? Sign Up",
+                              style: TextStyle(color: Colors.blue),
+                            ),
                           ),
                         ],
                       ),

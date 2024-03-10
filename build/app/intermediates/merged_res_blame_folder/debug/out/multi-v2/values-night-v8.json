@@ -4,14 +4,14 @@
             "outputFile": "com.example.ncafe.app-mergeDebugResources-10:/values-night-v8/values-night-v8.xml",
             "map": [
                 {
-                    "source": "F:\\computer group project final 2\\Personal-Finance-Manager\\android\\app\\src\\main\\res\\values-night\\styles.xml",
+                    "source": "C:\\Users\\yasir\\Downloads\\Compressed\\cashapp-master\\cashapp-master\\android\\app\\src\\main\\res\\values-night\\styles.xml",
                     "from": {
                         "startLines": "3,14",
                         "startColumns": "4,4",
-                        "startOffsets": "175,831",
+                        "startOffsets": "172,817",
                         "endLines": "7,16",
                         "endColumns": "12,12",
-                        "endOffsets": "482,997"
+                        "endOffsets": "475,981"
                     },
                     "to": {
                         "startLines": "2,6",
