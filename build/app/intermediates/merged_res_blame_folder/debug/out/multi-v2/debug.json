@@ -334,25 +334,6 @@
             "outputFile": "com.example.ncafe.app-merged_res-12:/values_values.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\yasir\\Downloads\\Compressed\\cashapp-master\\cashapp-master\\android\\app\\src\\main\\res\\values\\styles.xml",
-                    "from": {
-                        "startLines": "3,14",
-                        "startColumns": "4,4",
-                        "startOffsets": "173,818",
-                        "endLines": "7,16",
-                        "endColumns": "12,12",
-                        "endOffsets": "476,982"
-                    },
-                    "to": {
-                        "startLines": "101,105",
-                        "startColumns": "4,4",
-                        "startOffsets": "5967,6148",
-                        "endLines": "104,107",
-                        "endColumns": "12,12",
-                        "endOffsets": "6143,6312"
-                    }
-                },
-                {
                     "source": "C:\\Users\\yasir\\.gradle\\caches\\transforms-3\\168e459aae59caaab0d2c703cf9d67ab\\transformed\\core-1.6.0\\res\\values\\values.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,89,90,94,95,96,97,104,111,159,191,228",
@@ -405,6 +386,25 @@
                         "endLines": "7,8,9,10,79,131,135,249,261,269",
                         "endColumns": "11,59,51,44,59,24,24,24,24,24",
                         "endOffsets": "289,349,401,446,4832,7786,7917,11874,12314,12623"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\yasir\\OneDrive\\Desktop\\cashapp-master\\android\\app\\src\\main\\res\\values\\styles.xml",
+                    "from": {
+                        "startLines": "3,14",
+                        "startColumns": "4,4",
+                        "startOffsets": "173,818",
+                        "endLines": "7,16",
+                        "endColumns": "12,12",
+                        "endOffsets": "476,982"
+                    },
+                    "to": {
+                        "startLines": "101,105",
+                        "startColumns": "4,4",
+                        "startOffsets": "5967,6148",
+                        "endLines": "104,107",
+                        "endColumns": "12,12",
+                        "endOffsets": "6143,6312"
                     }
                 }
             ]
@@ -953,7 +953,7 @@
             "outputFile": "com.example.ncafe.app-merged_res-12:/values-night-v8_values-night-v8.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\yasir\\Downloads\\Compressed\\cashapp-master\\cashapp-master\\android\\app\\src\\main\\res\\values-night\\styles.xml",
+                    "source": "C:\\Users\\yasir\\OneDrive\\Desktop\\cashapp-master\\android\\app\\src\\main\\res\\values-night\\styles.xml",
                     "from": {
                         "startLines": "3,14",
                         "startColumns": "4,4",

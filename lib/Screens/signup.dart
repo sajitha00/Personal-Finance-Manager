@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:cashapp/components/BottomMainNavigationBar.dart';
+import 'package:cashapp/Screens/Pin.dart';
 
 class Signup extends StatelessWidget {
   const Signup({super.key});
@@ -96,7 +96,14 @@ class Signup extends StatelessWidget {
               Container(
                   padding: const EdgeInsets.only(top: 3, left: 3),
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) =>
+                              PinLogin(), // Navigate to PinLogin screen
+                        ),
+                      );
+                    },
                     child: const Text(
                       "Submit",
                       style: TextStyle(fontSize: 20),
@@ -126,7 +133,14 @@ class Signup extends StatelessWidget {
                 children: <Widget>[
                   const Text("Already have an account?"),
                   TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                PinLogin(), // Navigate to PinLogin screen
+                          ),
+                        );
+                      },
                       child: const Text(
                         "Enter Pin",
                         style: TextStyle(color: Colors.purple),
