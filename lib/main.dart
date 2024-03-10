@@ -3,6 +3,7 @@ import 'package:cashapp/Screens/creditScore.dart';
 import 'package:cashapp/Screens/debts.dart';
 import 'package:cashapp/Screens/fingerprint.dart';
 import 'package:cashapp/Screens/report.dart';
+import 'package:cashapp/Screens/signup.dart';
 import 'package:cashapp/Screens/user.dart';
 import 'package:cashapp/Screens/welcome.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +18,7 @@ void main() {
       debugShowCheckedModeBanner: false,
       home: FlutterSplashScreen(
         duration: const Duration(milliseconds: 200),
-        nextScreen: PinLogin(),
+        nextScreen:Signup(),
         splashScreenBody: Welcome(),
       ),
     ),
