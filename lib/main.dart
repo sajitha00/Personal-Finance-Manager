@@ -18,7 +18,7 @@ void main() {
       debugShowCheckedModeBanner: false,
       home: FlutterSplashScreen(
         duration: const Duration(milliseconds: 200),
-        nextScreen:Signup(),
+        nextScreen:PinLogin(),
         splashScreenBody: Welcome(),
       ),
     ),
