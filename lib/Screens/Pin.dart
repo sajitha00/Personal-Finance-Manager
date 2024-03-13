@@ -41,7 +41,7 @@ class PinLogin extends StatelessWidget {
                   children: [
                     SizedBox(height: 30.0),
                     Text(
-                      "Hello! User",
+                      "Hello! There",
                       style: TextStyle(
                         color: Colors.black,
                         fontSize: 32.0,
@@ -84,9 +84,17 @@ class PinLogin extends StatelessWidget {
                             ),
                           ),
                           ElevatedButton(
+                            style: ButtonStyle(
+                                backgroundColor: MaterialStatePropertyAll(Color.fromRGBO(146, 216, 153, 1)) ),
                             onPressed: () => checkPinAndNavigate(
                                 context, pinController.text),
-                            child: Text('Submit'),
+                            child: Text("Submit",
+                              style: TextStyle(
+                                  color: Color.fromRGBO(255, 255, 255, 1),
+                                  fontSize: 16.0,
+                                  fontFamily: 'Poppins',
+                                  fontWeight: FontWeight.w400),
+                            ),
                           ),
                           SizedBox(
                               height: 10.0), // Add some space between buttons
