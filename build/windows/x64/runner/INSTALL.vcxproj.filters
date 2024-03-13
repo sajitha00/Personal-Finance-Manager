@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\yasir\OneDrive\Desktop\cashapp\build\windows\x64\CMakeFiles\0c285c4ed58f3b9e97710c9cc967daae\INSTALL_force.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{D9586CD7-033A-3C19-AC1C-B20388ABF3B0}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

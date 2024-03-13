@@ -12,13 +12,15 @@ import 'package:cashapp/Screens/home.dart';
 import 'package:cashapp/Screens/Pin.dart';
 import 'package:another_flutter_splash_screen/another_flutter_splash_screen.dart';
 
+import 'package:cashapp/Screens/data_display_screen.dart';
+
 void main() {
   runApp(
     MaterialApp(
       debugShowCheckedModeBanner: false,
       home: FlutterSplashScreen(
         duration: const Duration(milliseconds: 200),
-        nextScreen:PinLogin(),
+        nextScreen: DataDisplayScreen(),
         splashScreenBody: Welcome(),
       ),
     ),
