@@ -68,7 +68,7 @@ class PinLogin extends StatelessWidget {
                                 horizontal: 8, vertical: 16),
                             child: SizedBox(
                               height: 51,
-                              width: 317,
+                              width: MediaQuery.of(context).size.width * 0.8, // Adjust width based on screen size
                               child: TextField(
                                 controller: pinController,
                                 keyboardType: TextInputType.number,
