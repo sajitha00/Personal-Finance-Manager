@@ -30,8 +30,9 @@ class _MyDebtsState extends State<MyDebts> {
       setState(() {
         _selectedDate = picked;
       });
-      // Print the selected date to the console
-      debugPrint('Selected Date: ${_selectedDate!.toIso8601String()}');
+      // Print the selected date to the console without time
+      final DateFormat formatter = DateFormat('yyyy-MM-dd');
+      debugPrint('Selected Date: ${formatter.format(_selectedDate!)}');
     }
   }
 
