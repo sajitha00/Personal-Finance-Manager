@@ -26,16 +26,16 @@ class PinLogin extends StatelessWidget {
     }
 
     return Scaffold(
-      body: Column(
-        children: [
-          Image(
-            image: AssetImage("images/Rectangle2.png"),
-            width: MediaQuery.of(context).size.width,
-            fit: BoxFit.cover,
-          ),
-          SafeArea(
-            child: Center(
-              child: SingleChildScrollView(
+      body: SingleChildScrollView( // Wrap the Column with SingleChildScrollView
+        child: Column(
+          children: [
+            Image(
+              image: AssetImage("images/Rectangle2.png"),
+              width: MediaQuery.of(context).size.width,
+              fit: BoxFit.cover,
+            ),
+            SafeArea(
+              child: Center(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -118,8 +118,8 @@ class PinLogin extends StatelessWidget {
                 ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
