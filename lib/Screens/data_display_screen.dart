@@ -42,15 +42,23 @@ class _DataDisplayScreenState extends State<DataDisplayScreen> {
           } else if (snapshot.hasError) {
             return const Center(child: Text('Error loading data'));
           } else {
+            // Assuming all rows have the same columns
+            final List<String> columns = snapshot.data!.first.keys.toList();
             return ListView.builder(
               itemCount: snapshot.data!.length,
               itemBuilder: (context, index) {
-                return ListTile(
-                  title: Text(snapshot.data![index][DatabaseHelper.columnEmail]
-                      .toString()),
-                  subtitle: Text(snapshot.data![index]
-                          [DatabaseHelper.columnMobile]
-                      .toString()),
+                return DataTable(
+                  columns: columns
+                      .map((column) => DataColumn(label: Text(column)))
+                      .toList(),
+                  rows: [
+                    DataRow(
+                      cells: columns
+                          .map((column) => DataCell(
+                              Text(snapshot.data![index][column].toString())))
+                          .toList(),
+                    ),
+                  ],
                 );
               },
             );
