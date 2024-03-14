@@ -1,5 +1,4 @@
 import 'package:sqflite/sqflite.dart';
-// ignore: depend_on_referenced_packages
 import 'package:path/path.dart';
 
 class DatabaseHelper {
@@ -46,5 +45,16 @@ class DatabaseHelper {
   Future<int?> insert(Map<String, dynamic> row) async {
     Database? db = await instance.database;
     return await db?.insert(table, row);
+  }
+
+  // Fetch user data
+  Future<Map<String, dynamic>> fetchUserData() async {
+    Database? db = await instance.database;
+    final List<Map<String, Object?>>? maps = await db?.query(table);
+    if (maps == null || maps.isEmpty) {
+      return {};
+    }
+    // Convert Object? to dynamic
+    return maps.first.map((key, value) => MapEntry(key, value as dynamic));
   }
 }
