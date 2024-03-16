@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 application
-INJECTED from C:\flutter finance\new\cashapp\android\app\src\main\AndroidManifest.xml:2:5-32:19
+INJECTED from C:\Users\HP\Documents\GitHub\cashapp\android\app\src\main\AndroidManifest.xml:2:5-32:19
 MERGED from [androidx.window:window:1.0.0-beta04] C:\Users\HP\.gradle\caches\transforms-3\29fe38a5fd6c3bf46cd8e59c2b63489e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:24:5-31:19
 MERGED from [androidx.window:window:1.0.0-beta04] C:\Users\HP\.gradle\caches\transforms-3\29fe38a5fd6c3bf46cd8e59c2b63489e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:24:5-31:19
 MERGED from [androidx.core:core:1.6.0] C:\Users\HP\.gradle\caches\transforms-3\168e459aae59caaab0d2c703cf9d67ab\transformed\core-1.6.0\AndroidManifest.xml:24:5-89
@@ -10,16 +10,16 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\HP
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.6.0] C:\Users\HP\.gradle\caches\transforms-3\168e459aae59caaab0d2c703cf9d67ab\transformed\core-1.6.0\AndroidManifest.xml:24:18-86
 	android:name
-		INJECTED from C:\flutter finance\new\cashapp\android\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\HP\Documents\GitHub\cashapp\android\app\src\main\AndroidManifest.xml
 manifest
-ADDED from C:\flutter finance\new\cashapp\android\app\src\main\AndroidManifest.xml:1:1-33:12
-INJECTED from C:\flutter finance\new\cashapp\android\app\src\main\AndroidManifest.xml:1:1-33:12
-INJECTED from C:\flutter finance\new\cashapp\android\app\src\main\AndroidManifest.xml:1:1-33:12
-INJECTED from C:\flutter finance\new\cashapp\android\app\src\main\AndroidManifest.xml:1:1-33:12
-MERGED from C:\flutter finance\new\cashapp\android\app\src\main\AndroidManifest.xml:1:1-33:12
-MERGED from [:sqflite] C:\flutter finance\new\cashapp\build\sqflite\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
-MERGED from [:flutter_local_notifications] C:\flutter finance\new\cashapp\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-12:12
-MERGED from [:path_provider_android] C:\flutter finance\new\cashapp\build\path_provider_android\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
+ADDED from C:\Users\HP\Documents\GitHub\cashapp\android\app\src\main\AndroidManifest.xml:1:1-33:12
+INJECTED from C:\Users\HP\Documents\GitHub\cashapp\android\app\src\main\AndroidManifest.xml:1:1-33:12
+INJECTED from C:\Users\HP\Documents\GitHub\cashapp\android\app\src\main\AndroidManifest.xml:1:1-33:12
+INJECTED from C:\Users\HP\Documents\GitHub\cashapp\android\app\src\main\AndroidManifest.xml:1:1-33:12
+MERGED from C:\Users\HP\Documents\GitHub\cashapp\android\app\src\main\AndroidManifest.xml:1:1-33:12
+MERGED from [:sqflite] C:\Users\HP\Documents\GitHub\cashapp\build\sqflite\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
+MERGED from [:flutter_local_notifications] C:\Users\HP\Documents\GitHub\cashapp\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-12:12
+MERGED from [:path_provider_android] C:\Users\HP\Documents\GitHub\cashapp\build\path_provider_android\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [androidx.window:window-java:1.0.0-beta04] C:\Users\HP\.gradle\caches\transforms-3\978180320ed1d29d66a82edc9d24751e\transformed\jetified-window-java-1.0.0-beta04\AndroidManifest.xml:17:1-23:12
 MERGED from [androidx.window:window:1.0.0-beta04] C:\Users\HP\.gradle\caches\transforms-3\29fe38a5fd6c3bf46cd8e59c2b63489e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:17:1-33:12
 MERGED from [androidx.media:media:1.1.0] C:\Users\HP\.gradle\caches\transforms-3\c7b5e6299f212fe1de353621f13bf5f6\transformed\media-1.1.0\AndroidManifest.xml:17:1-24:12
@@ -38,33 +38,33 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\HP
 MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\HP\.gradle\caches\transforms-3\03a673e2f58619b24026cc9dd056931f\transformed\core-runtime-2.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] C:\Users\HP\.gradle\caches\transforms-3\45f58893a3b395d9758df204f662699b\transformed\lifecycle-viewmodel-2.1.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.annotation:annotation-experimental:1.1.0] C:\Users\HP\.gradle\caches\transforms-3\09db32a73384ac2dccccf916d7dc0262\transformed\jetified-annotation-experimental-1.1.0\AndroidManifest.xml:17:1-24:12
-INJECTED from C:\flutter finance\new\cashapp\android\app\src\debug\AndroidManifest.xml:1:1-7:12
-INJECTED from C:\flutter finance\new\cashapp\android\app\src\debug\AndroidManifest.xml:1:1-7:12
-INJECTED from C:\flutter finance\new\cashapp\android\app\src\debug\AndroidManifest.xml:1:1-7:12
+INJECTED from C:\Users\HP\Documents\GitHub\cashapp\android\app\src\debug\AndroidManifest.xml:1:1-7:12
+INJECTED from C:\Users\HP\Documents\GitHub\cashapp\android\app\src\debug\AndroidManifest.xml:1:1-7:12
+INJECTED from C:\Users\HP\Documents\GitHub\cashapp\android\app\src\debug\AndroidManifest.xml:1:1-7:12
 	package
-		INJECTED from C:\flutter finance\new\cashapp\android\app\src\main\AndroidManifest.xml
-		ADDED from C:\flutter finance\new\cashapp\android\app\src\main\AndroidManifest.xml:1:1-33:12
-		INJECTED from C:\flutter finance\new\cashapp\android\app\src\debug\AndroidManifest.xml
+		INJECTED from C:\Users\HP\Documents\GitHub\cashapp\android\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\HP\Documents\GitHub\cashapp\android\app\src\main\AndroidManifest.xml:1:1-33:12
+		INJECTED from C:\Users\HP\Documents\GitHub\cashapp\android\app\src\debug\AndroidManifest.xml
 	android:versionName
-		INJECTED from C:\flutter finance\new\cashapp\android\app\src\main\AndroidManifest.xml
-		ADDED from C:\flutter finance\new\cashapp\android\app\src\main\AndroidManifest.xml:1:1-33:12
-		INJECTED from C:\flutter finance\new\cashapp\android\app\src\debug\AndroidManifest.xml
+		INJECTED from C:\Users\HP\Documents\GitHub\cashapp\android\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\HP\Documents\GitHub\cashapp\android\app\src\main\AndroidManifest.xml:1:1-33:12
+		INJECTED from C:\Users\HP\Documents\GitHub\cashapp\android\app\src\debug\AndroidManifest.xml
 	android:versionCode
-		INJECTED from C:\flutter finance\new\cashapp\android\app\src\main\AndroidManifest.xml
-		ADDED from C:\flutter finance\new\cashapp\android\app\src\main\AndroidManifest.xml:1:1-33:12
-		INJECTED from C:\flutter finance\new\cashapp\android\app\src\debug\AndroidManifest.xml
+		INJECTED from C:\Users\HP\Documents\GitHub\cashapp\android\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\HP\Documents\GitHub\cashapp\android\app\src\main\AndroidManifest.xml:1:1-33:12
+		INJECTED from C:\Users\HP\Documents\GitHub\cashapp\android\app\src\debug\AndroidManifest.xml
 	xmlns:android
-		ADDED from C:\flutter finance\new\cashapp\android\app\src\main\AndroidManifest.xml:1:11-69
+		ADDED from C:\Users\HP\Documents\GitHub\cashapp\android\app\src\main\AndroidManifest.xml:1:11-69
 uses-sdk
-INJECTED from C:\flutter finance\new\cashapp\android\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from C:\flutter finance\new\cashapp\android\app\src\main\AndroidManifest.xml
-INJECTED from C:\flutter finance\new\cashapp\android\app\src\main\AndroidManifest.xml
-MERGED from [:sqflite] C:\flutter finance\new\cashapp\build\sqflite\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
-MERGED from [:sqflite] C:\flutter finance\new\cashapp\build\sqflite\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
-MERGED from [:flutter_local_notifications] C:\flutter finance\new\cashapp\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
-MERGED from [:flutter_local_notifications] C:\flutter finance\new\cashapp\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
-MERGED from [:path_provider_android] C:\flutter finance\new\cashapp\build\path_provider_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
-MERGED from [:path_provider_android] C:\flutter finance\new\cashapp\build\path_provider_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+INJECTED from C:\Users\HP\Documents\GitHub\cashapp\android\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\Users\HP\Documents\GitHub\cashapp\android\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\HP\Documents\GitHub\cashapp\android\app\src\main\AndroidManifest.xml
+MERGED from [:sqflite] C:\Users\HP\Documents\GitHub\cashapp\build\sqflite\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:sqflite] C:\Users\HP\Documents\GitHub\cashapp\build\sqflite\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:flutter_local_notifications] C:\Users\HP\Documents\GitHub\cashapp\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:flutter_local_notifications] C:\Users\HP\Documents\GitHub\cashapp\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:path_provider_android] C:\Users\HP\Documents\GitHub\cashapp\build\path_provider_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:path_provider_android] C:\Users\HP\Documents\GitHub\cashapp\build\path_provider_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [androidx.window:window-java:1.0.0-beta04] C:\Users\HP\.gradle\caches\transforms-3\978180320ed1d29d66a82edc9d24751e\transformed\jetified-window-java-1.0.0-beta04\AndroidManifest.xml:19:5-21:41
 MERGED from [androidx.window:window-java:1.0.0-beta04] C:\Users\HP\.gradle\caches\transforms-3\978180320ed1d29d66a82edc9d24751e\transformed\jetified-window-java-1.0.0-beta04\AndroidManifest.xml:19:5-21:41
 MERGED from [androidx.window:window:1.0.0-beta04] C:\Users\HP\.gradle\caches\transforms-3\29fe38a5fd6c3bf46cd8e59c2b63489e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:20:5-22:41
@@ -101,26 +101,26 @@ MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] C:\Users\HP\.gradle\c
 MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] C:\Users\HP\.gradle\caches\transforms-3\45f58893a3b395d9758df204f662699b\transformed\lifecycle-viewmodel-2.1.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.annotation:annotation-experimental:1.1.0] C:\Users\HP\.gradle\caches\transforms-3\09db32a73384ac2dccccf916d7dc0262\transformed\jetified-annotation-experimental-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.annotation:annotation-experimental:1.1.0] C:\Users\HP\.gradle\caches\transforms-3\09db32a73384ac2dccccf916d7dc0262\transformed\jetified-annotation-experimental-1.1.0\AndroidManifest.xml:20:5-22:41
-INJECTED from C:\flutter finance\new\cashapp\android\app\src\debug\AndroidManifest.xml
-INJECTED from C:\flutter finance\new\cashapp\android\app\src\debug\AndroidManifest.xml
+INJECTED from C:\Users\HP\Documents\GitHub\cashapp\android\app\src\debug\AndroidManifest.xml
+INJECTED from C:\Users\HP\Documents\GitHub\cashapp\android\app\src\debug\AndroidManifest.xml
 	android:targetSdkVersion
-		INJECTED from C:\flutter finance\new\cashapp\android\app\src\main\AndroidManifest.xml
-		INJECTED from C:\flutter finance\new\cashapp\android\app\src\debug\AndroidManifest.xml
+		INJECTED from C:\Users\HP\Documents\GitHub\cashapp\android\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\HP\Documents\GitHub\cashapp\android\app\src\debug\AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from C:\flutter finance\new\cashapp\android\app\src\main\AndroidManifest.xml
-		INJECTED from C:\flutter finance\new\cashapp\android\app\src\debug\AndroidManifest.xml
+		INJECTED from C:\Users\HP\Documents\GitHub\cashapp\android\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\HP\Documents\GitHub\cashapp\android\app\src\debug\AndroidManifest.xml
 uses-permission#android.permission.INTERNET
-ADDED from C:\flutter finance\new\cashapp\android\app\src\debug\AndroidManifest.xml:6:5-66
+ADDED from C:\Users\HP\Documents\GitHub\cashapp\android\app\src\debug\AndroidManifest.xml:6:5-66
 	android:name
-		ADDED from C:\flutter finance\new\cashapp\android\app\src\debug\AndroidManifest.xml:6:22-64
+		ADDED from C:\Users\HP\Documents\GitHub\cashapp\android\app\src\debug\AndroidManifest.xml:6:22-64
 uses-permission#android.permission.VIBRATE
-ADDED from [:flutter_local_notifications] C:\flutter finance\new\cashapp\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-66
+ADDED from [:flutter_local_notifications] C:\Users\HP\Documents\GitHub\cashapp\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-66
 	android:name
-		ADDED from [:flutter_local_notifications] C:\flutter finance\new\cashapp\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:9:22-63
+		ADDED from [:flutter_local_notifications] C:\Users\HP\Documents\GitHub\cashapp\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:9:22-63
 uses-permission#android.permission.POST_NOTIFICATIONS
-ADDED from [:flutter_local_notifications] C:\flutter finance\new\cashapp\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:10:5-77
+ADDED from [:flutter_local_notifications] C:\Users\HP\Documents\GitHub\cashapp\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:10:5-77
 	android:name
-		ADDED from [:flutter_local_notifications] C:\flutter finance\new\cashapp\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:10:22-74
+		ADDED from [:flutter_local_notifications] C:\Users\HP\Documents\GitHub\cashapp\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:10:22-74
 uses-library#androidx.window.extensions
 ADDED from [androidx.window:window:1.0.0-beta04] C:\Users\HP\.gradle\caches\transforms-3\29fe38a5fd6c3bf46cd8e59c2b63489e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:25:9-27:40
 	android:required
