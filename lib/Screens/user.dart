@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:cashapp/components/BottomMainNavigationBar.dart';
-import 'package:cashapp/backend/database_helper.dart'; // Adjust the import path as necessary
+import 'package:cashapp/backend/database_helper.dart';// Adjust the import path as necessary
 
 class User extends StatelessWidget {
   const User({Key? key}) : super(key: key);
