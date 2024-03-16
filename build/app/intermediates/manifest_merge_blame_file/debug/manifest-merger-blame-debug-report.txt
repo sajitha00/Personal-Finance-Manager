@@ -13,19 +13,19 @@
 13         to allow setting breakpoints, to provide hot reload, etc.
 14    -->
 15    <uses-permission android:name="android.permission.INTERNET" />
-15-->F:\cgp final 3\Personal-Finance-Manager\android\app\src\debug\AndroidManifest.xml:6:5-66
-15-->F:\cgp final 3\Personal-Finance-Manager\android\app\src\debug\AndroidManifest.xml:6:22-64
+15-->C:\Users\yasir\OneDrive\Desktop\New folder (4)\cashapp\android\app\src\debug\AndroidManifest.xml:6:5-66
+15-->C:\Users\yasir\OneDrive\Desktop\New folder (4)\cashapp\android\app\src\debug\AndroidManifest.xml:6:22-64
 16    <uses-permission android:name="android.permission.VIBRATE" />
-16-->[:flutter_local_notifications] F:\cgp final 3\Personal-Finance-Manager\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-66
-16-->[:flutter_local_notifications] F:\cgp final 3\Personal-Finance-Manager\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:9:22-63
+16-->[:flutter_local_notifications] C:\Users\yasir\OneDrive\Desktop\New folder (4)\cashapp\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-66
+16-->[:flutter_local_notifications] C:\Users\yasir\OneDrive\Desktop\New folder (4)\cashapp\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:9:22-63
 17    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
-17-->[:flutter_local_notifications] F:\cgp final 3\Personal-Finance-Manager\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:10:5-77
-17-->[:flutter_local_notifications] F:\cgp final 3\Personal-Finance-Manager\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:10:22-74
+17-->[:flutter_local_notifications] C:\Users\yasir\OneDrive\Desktop\New folder (4)\cashapp\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:10:5-77
+17-->[:flutter_local_notifications] C:\Users\yasir\OneDrive\Desktop\New folder (4)\cashapp\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:10:22-74
 18
 19    <application
 20        android:name="android.app.Application"
 21        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-21-->[androidx.core:core:1.6.0] C:\Users\sajit\.gradle\caches\transforms-3\168e459aae59caaab0d2c703cf9d67ab\transformed\core-1.6.0\AndroidManifest.xml:24:18-86
+21-->[androidx.core:core:1.6.0] C:\Users\yasir\.gradle\caches\transforms-3\168e459aae59caaab0d2c703cf9d67ab\transformed\core-1.6.0\AndroidManifest.xml:24:18-86
 22        android:debuggable="true"
 23        android:icon="@mipmap/ic_launcher"
 24        android:label="Money Way" >
@@ -63,17 +63,17 @@
 56            android:value="2" />
 57
 58        <uses-library
-58-->[androidx.window:window:1.0.0-beta04] C:\Users\sajit\.gradle\caches\transforms-3\29fe38a5fd6c3bf46cd8e59c2b63489e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:25:9-27:40
+58-->[androidx.window:window:1.0.0-beta04] C:\Users\yasir\.gradle\caches\transforms-3\29fe38a5fd6c3bf46cd8e59c2b63489e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:25:9-27:40
 59            android:name="androidx.window.extensions"
-59-->[androidx.window:window:1.0.0-beta04] C:\Users\sajit\.gradle\caches\transforms-3\29fe38a5fd6c3bf46cd8e59c2b63489e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:26:13-54
+59-->[androidx.window:window:1.0.0-beta04] C:\Users\yasir\.gradle\caches\transforms-3\29fe38a5fd6c3bf46cd8e59c2b63489e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:26:13-54
 60            android:required="false" />
-60-->[androidx.window:window:1.0.0-beta04] C:\Users\sajit\.gradle\caches\transforms-3\29fe38a5fd6c3bf46cd8e59c2b63489e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:27:13-37
+60-->[androidx.window:window:1.0.0-beta04] C:\Users\yasir\.gradle\caches\transforms-3\29fe38a5fd6c3bf46cd8e59c2b63489e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:27:13-37
 61        <uses-library
-61-->[androidx.window:window:1.0.0-beta04] C:\Users\sajit\.gradle\caches\transforms-3\29fe38a5fd6c3bf46cd8e59c2b63489e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:28:9-30:40
+61-->[androidx.window:window:1.0.0-beta04] C:\Users\yasir\.gradle\caches\transforms-3\29fe38a5fd6c3bf46cd8e59c2b63489e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:28:9-30:40
 62            android:name="androidx.window.sidecar"
-62-->[androidx.window:window:1.0.0-beta04] C:\Users\sajit\.gradle\caches\transforms-3\29fe38a5fd6c3bf46cd8e59c2b63489e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:29:13-51
+62-->[androidx.window:window:1.0.0-beta04] C:\Users\yasir\.gradle\caches\transforms-3\29fe38a5fd6c3bf46cd8e59c2b63489e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:29:13-51
 63            android:required="false" />
-63-->[androidx.window:window:1.0.0-beta04] C:\Users\sajit\.gradle\caches\transforms-3\29fe38a5fd6c3bf46cd8e59c2b63489e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:30:13-37
+63-->[androidx.window:window:1.0.0-beta04] C:\Users\yasir\.gradle\caches\transforms-3\29fe38a5fd6c3bf46cd8e59c2b63489e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:30:13-37
 64    </application>
 65
 66</manifest>
