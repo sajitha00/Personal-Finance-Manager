@@ -1,25 +1,26 @@
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
-import 'package:path_provider/path_provider.dart';
-
 
 class DatabaseHelper {
   static const _databaseName = "cashapp.db";
   static const _databaseVersion = 1;
 
   static const table = 'user';
+  static const debtsTable = 'debts';
 
   static const columnId = '_id';
   static const columnEmail = 'email';
   static const columnPassword = 'password';
-  static final columnMobile = 'mobile';
+  static const columnMobile = 'mobile';
+  static const columnAmount = 'amount';
+  static const columnDate = 'date';
 
   // Singleton class
   DatabaseHelper._privateConstructor();
   static final DatabaseHelper instance = DatabaseHelper._privateConstructor();
 
   // Database reference
-  static Database? _database = null;
+  static Database? _database;
   Future<Database?> get database async {
     if (_database != null) return _database;
     _database = await _initDatabase();
@@ -41,12 +42,25 @@ class DatabaseHelper {
             $columnMobile TEXT NOT NULL
           )
           ''');
+    await db.execute('''
+          CREATE TABLE $debtsTable (
+            $columnId INTEGER PRIMARY KEY,
+            $columnAmount REAL NOT NULL,
+            $columnDate TEXT NOT NULL
+          )
+          ''');
   }
 
   // Insert user
   Future<int?> insert(Map<String, dynamic> row) async {
     Database? db = await instance.database;
     return await db?.insert(table, row);
+  }
+
+  // Insert debt
+  Future<int?> insertDebt(Map<String, dynamic> row) async {
+    Database? db = await instance.database;
+    return await db?.insert(debtsTable, row);
   }
 
   // Fetch user data
@@ -58,5 +72,11 @@ class DatabaseHelper {
     }
     // Convert Object? to dynamic
     return maps.first.map((key, value) => MapEntry(key, value as dynamic));
+  }
+
+  // Fetch all debts
+  Future<List<Map<String, dynamic>>> fetchAllDebts() async {
+    Database? db = await instance.database;
+    return await db?.query(debtsTable) ?? [];
   }
 }

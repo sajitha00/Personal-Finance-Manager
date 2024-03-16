@@ -6,6 +6,7 @@ import "package:cashapp/Screens/report.dart";
 import "package:cashapp/Screens/user.dart";
 import "package:flutter/cupertino.dart";
 import "package:flutter/material.dart";
+import 'package:cashapp/Screens/DebtsListScreen.dart';
 import "package:flutter/widgets.dart";
 
 class HomeMenu extends StatelessWidget {
@@ -22,11 +23,9 @@ class HomeMenu extends StatelessWidget {
               Expanded(
                 child: TextButton(
                   onPressed: () {
-                    Navigator.of(context).push(MaterialPageRoute(builder: (_){
-                      return MyDebts();
-                    }
-                    )
-                    );
+                    Navigator.of(context).push(MaterialPageRoute(builder: (_) {
+                      return DebtsListScreen();
+                    }));
                   },
                   child: Container(
                       height: 111,
@@ -57,11 +56,9 @@ class HomeMenu extends StatelessWidget {
               Expanded(
                 child: TextButton(
                   onPressed: () {
-                    Navigator.of(context).push(MaterialPageRoute(builder: (_){
+                    Navigator.of(context).push(MaterialPageRoute(builder: (_) {
                       return ReportScreen();
-                    }
-                    )
-                    );
+                    }));
                   },
                   child: Container(
                       height: 111,
@@ -86,18 +83,15 @@ class HomeMenu extends StatelessWidget {
                               fontFamily: 'Poppins',
                               fontWeight: FontWeight.w500),
                         ),
-                      )
-                  ),
+                      )),
                 ),
               ),
               Expanded(
                 child: TextButton(
                   onPressed: () {
-                    Navigator.of(context).push(MaterialPageRoute(builder: (_){
+                    Navigator.of(context).push(MaterialPageRoute(builder: (_) {
                       return DetailsScreen();
-                    }
-                    )
-                    );
+                    }));
                   },
                   child: Container(
                       height: 111,
@@ -136,11 +130,9 @@ class HomeMenu extends StatelessWidget {
               Expanded(
                 child: TextButton(
                   onPressed: () {
-                    Navigator.of(context).push(MaterialPageRoute(builder: (_){
+                    Navigator.of(context).push(MaterialPageRoute(builder: (_) {
                       return CreditScore();
-                    }
-                    )
-                    );
+                    }));
                   },
                   child: Container(
                       height: 111,
@@ -171,11 +163,9 @@ class HomeMenu extends StatelessWidget {
               Expanded(
                 child: TextButton(
                   onPressed: () {
-                    Navigator.of(context).push(MaterialPageRoute(builder: (_){
+                    Navigator.of(context).push(MaterialPageRoute(builder: (_) {
                       return User();
-                    }
-                    )
-                    );
+                    }));
                   },
                   child: Container(
                       height: 111,
@@ -200,18 +190,15 @@ class HomeMenu extends StatelessWidget {
                               fontFamily: 'Poppins',
                               fontWeight: FontWeight.w500),
                         ),
-                      )
-                  ),
+                      )),
                 ),
               ),
               Expanded(
                 child: TextButton(
                   onPressed: () {
-                    Navigator.of(context).push(MaterialPageRoute(builder: (_){
+                    Navigator.of(context).push(MaterialPageRoute(builder: (_) {
                       return AddDetails();
-                    }
-                    )
-                    );
+                    }));
                   },
                   child: Container(
                       height: 111,
