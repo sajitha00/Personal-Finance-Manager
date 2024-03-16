@@ -4,6 +4,7 @@ import 'package:cashapp/Screens/details.dart';
 import 'package:cashapp/Screens/home.dart';
 import 'package:cashapp/Screens/report.dart';
 import 'package:cashapp/Screens/user.dart';
+import 'package:cashapp/Screens/DebtsListScreen.dart';
 import 'package:flutter/material.dart';
 
 class BottomMainNavigationBar extends StatelessWidget {
@@ -45,12 +46,10 @@ class BottomMainNavigationBar extends StatelessWidget {
             items: [
               BottomNavigationBarItem(
                 icon: InkWell(
-                  onTap: (){
-                    Navigator.of(context).push(MaterialPageRoute(builder: (_){
+                  onTap: () {
+                    Navigator.of(context).push(MaterialPageRoute(builder: (_) {
                       return HomeScreen();
-                    }
-                    )
-                    );
+                    }));
                   },
                   child: Container(
                     padding: EdgeInsets.zero,
@@ -67,12 +66,10 @@ class BottomMainNavigationBar extends StatelessWidget {
               ),
               BottomNavigationBarItem(
                 icon: InkWell(
-                  onTap: (){
-                    Navigator.of(context).push(MaterialPageRoute(builder: (_){
+                  onTap: () {
+                    Navigator.of(context).push(MaterialPageRoute(builder: (_) {
                       return ReportScreen();
-                    }
-                    )
-                    );
+                    }));
                   },
                   child: Container(
                     padding: EdgeInsets.zero,
@@ -88,12 +85,10 @@ class BottomMainNavigationBar extends StatelessWidget {
               ),
               BottomNavigationBarItem(
                 icon: InkWell(
-                  onTap: (){
-                    Navigator.of(context).push(MaterialPageRoute(builder: (_){
-                      return MyDebts();
-                    }
-                    )
-                    );
+                  onTap: () {
+                    Navigator.of(context).push(MaterialPageRoute(builder: (_) {
+                      return DebtsListScreen();
+                    }));
                   },
                   child: Container(
                     padding: EdgeInsets.all(5),
@@ -109,12 +104,10 @@ class BottomMainNavigationBar extends StatelessWidget {
               ),
               BottomNavigationBarItem(
                 icon: InkWell(
-                  onTap: (){
-                    Navigator.of(context).push(MaterialPageRoute(builder: (_){
+                  onTap: () {
+                    Navigator.of(context).push(MaterialPageRoute(builder: (_) {
                       return AddDetails();
-                    }
-                    )
-                    );
+                    }));
                   },
                   child: Container(
                     padding: EdgeInsets.zero,
@@ -130,12 +123,10 @@ class BottomMainNavigationBar extends StatelessWidget {
               ),
               BottomNavigationBarItem(
                 icon: InkWell(
-                  onTap: (){
-                    Navigator.of(context).push(MaterialPageRoute(builder: (_){
+                  onTap: () {
+                    Navigator.of(context).push(MaterialPageRoute(builder: (_) {
                       return User();
-                    }
-                    )
-                    );
+                    }));
                   },
                   child: Container(
                     padding: EdgeInsets.zero,
