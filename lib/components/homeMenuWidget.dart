@@ -1,4 +1,3 @@
-
 import "package:cashapp/Screens/addDetails.dart";
 import "package:cashapp/Screens/creditScore.dart";
 import "package:cashapp/Screens/debts.dart";
@@ -196,7 +195,7 @@ class HomeMenu extends StatelessWidget {
               TextButton(
                 onPressed: () {
                   Navigator.of(context).push(MaterialPageRoute(builder: (_){
-                    return AddDetailsScreen();
+                    return AddDetails();
                   }
                   )
                   );

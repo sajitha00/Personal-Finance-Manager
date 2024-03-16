@@ -1,0 +1,1 @@
+ C:\\flutter\ finance\\new\\cashapp\\.dart_tool\\flutter_build\\38bcc848f3d5a6f6052e7ccbd2056859\\native_assets.yaml: 
