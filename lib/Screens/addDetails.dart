@@ -154,123 +154,125 @@ class _AddDetailsState extends State<AddDetails> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Container(
-                          height: 164.0,
-                          width: 340.0,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(25),
-                            color: Colors.blue,
-                            gradient: LinearGradient(
-                              begin: Alignment.topCenter,
-                              end: Alignment.bottomCenter,
-                              colors: [Color.fromRGBO(0, 125, 13, 1), Color.fromRGBO(170, 122, 0, 1)],
-                            ),
-                            boxShadow: [
-                              BoxShadow(color: Colors.green, spreadRadius: 3),
-                            ],
-                          ),
-                          child: Padding(
-                            padding: EdgeInsets.only(
-                                top: 20.0
-                            ),
-                            child: Column(
-                              children: [
-                                Text(
-                                  "Budget",
-                                  style: TextStyle(
-                                      color: Color.fromRGBO(255, 255, 255, 1),
-                                      fontSize: 40.0,
-                                      fontFamily: 'Poppins',
-                                      fontWeight: FontWeight.w700),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(
-                                      top: 29.5,
-                                      left: 13
-                                  ),
-                                  child: Row(
-                                    children: [
-                                      Container(
-                                        width: 42,
-                                        height: 42,
-                                        decoration: BoxDecoration(
-                                          color: Colors.transparent,
-                                          border: Border.all(color: Colors.white),
-                                          borderRadius: BorderRadius.circular(50.0),
-                                        ),
-                                        child: Center(
-                                          child: TextButton(
-                                            onPressed: () async{
-                                              final budget = await addBudget();
-                                              if (budget == null || budget.isEmpty)
-                                                return ;
-
-                                              setState(() => this.budget = budget);
-
-                                            },
-                                            child: Text("+",
-                                              style: TextStyle(
-                                                color: Colors.white70,
-                                                fontSize: 18,
-                                                fontWeight: FontWeight.w700,
-                                              ),
-                                            ),
-                                          ),
-
-
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        width: 7,
-                                      ),
-                                      Container(
-                                        width: 42,
-                                        height: 42,
-                                        decoration: BoxDecoration(
-                                          color: Colors.transparent,
-                                          border: Border.all(color: Colors.white),
-                                          borderRadius: BorderRadius.circular(50.0),
-                                        ),
-                                        child: Center(
-                                          child: TextButton(
-                                            onPressed: (){},
-                                            child: Text("X",
-                                              style: TextStyle(
-                                                color: Colors.white70,
-                                                fontSize: 18,
-                                                fontWeight: FontWeight.w700,
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        width: 75,
-                                      ),
-                                      Text(
-                                        "Rs ",
-                                        style: TextStyle(
-                                            color: Color.fromRGBO(255, 255, 255, 1),
-                                            fontSize: 21.0,
-                                            fontFamily: 'Poppins',
-                                            fontWeight: FontWeight.w600),
-                                      ),
-                                      SizedBox(
-                                        width: 5,
-
-                                      ),
-                                      Text(
-                                        (budget),
-                                        style: TextStyle(
-                                            color: Color.fromRGBO(255, 255, 255, 1),
-                                            fontSize: 40.0,
-                                            fontFamily: 'Poppins',
-                                            fontWeight: FontWeight.w400),
-                                      ),
-                                    ],
-                                  ),
-                                ),
+                        Expanded(
+                          child: Container(
+                            height: 164.0,
+                            width: 340.0,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(25),
+                              color: Colors.blue,
+                              gradient: LinearGradient(
+                                begin: Alignment.topCenter,
+                                end: Alignment.bottomCenter,
+                                colors: [Color.fromRGBO(0, 125, 13, 1), Color.fromRGBO(170, 122, 0, 1)],
+                              ),
+                              boxShadow: [
+                                BoxShadow(color: Colors.green, spreadRadius: 3),
                               ],
+                            ),
+                            child: Padding(
+                              padding: EdgeInsets.only(
+                                  top: 20.0
+                              ),
+                              child: Column(
+                                children: [
+                                  Text(
+                                    "Budget",
+                                    style: TextStyle(
+                                        color: Color.fromRGBO(255, 255, 255, 1),
+                                        fontSize: 40.0,
+                                        fontFamily: 'Poppins',
+                                        fontWeight: FontWeight.w700),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(
+                                        top: 29.5,
+                                        left: 13
+                                    ),
+                                    child: Row(
+                                      children: [
+                                        Container(
+                                          width: 42,
+                                          height: 42,
+                                          decoration: BoxDecoration(
+                                            color: Colors.transparent,
+                                            border: Border.all(color: Colors.white),
+                                            borderRadius: BorderRadius.circular(50.0),
+                                          ),
+                                          child: Center(
+                                            child: TextButton(
+                                              onPressed: () async{
+                                                final budget = await addBudget();
+                                                if (budget == null || budget.isEmpty)
+                                                  return ;
+                          
+                                                setState(() => this.budget = budget);
+                          
+                                              },
+                                              child: Text("+",
+                                                style: TextStyle(
+                                                  color: Colors.white70,
+                                                  fontSize: 18,
+                                                  fontWeight: FontWeight.w700,
+                                                ),
+                                              ),
+                                            ),
+                          
+                          
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          width: 7,
+                                        ),
+                                        Container(
+                                          width: 42,
+                                          height: 42,
+                                          decoration: BoxDecoration(
+                                            color: Colors.transparent,
+                                            border: Border.all(color: Colors.white),
+                                            borderRadius: BorderRadius.circular(50.0),
+                                          ),
+                                          child: Center(
+                                            child: TextButton(
+                                              onPressed: (){},
+                                              child: Text("X",
+                                                style: TextStyle(
+                                                  color: Colors.white70,
+                                                  fontSize: 18,
+                                                  fontWeight: FontWeight.w700,
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          width: 75,
+                                        ),
+                                        Text(
+                                          "Rs ",
+                                          style: TextStyle(
+                                              color: Color.fromRGBO(255, 255, 255, 1),
+                                              fontSize: 21.0,
+                                              fontFamily: 'Poppins',
+                                              fontWeight: FontWeight.w600),
+                                        ),
+                                        SizedBox(
+                                          width: 5,
+                          
+                                        ),
+                                        Text(
+                                          (budget),
+                                          style: TextStyle(
+                                              color: Color.fromRGBO(255, 255, 255, 1),
+                                              fontSize: 40.0,
+                                              fontFamily: 'Poppins',
+                                              fontWeight: FontWeight.w400),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ),
