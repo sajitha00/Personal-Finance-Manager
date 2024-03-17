@@ -29,6 +29,22 @@ class _DebtsListScreenState extends State<DebtsListScreen> {
     }
   }
 
+  void _handlePaidButtonPress(Map<String, dynamic> debt) async {
+    // Insert the debt into the paid table
+    await DatabaseHelper.instance.insertPaid({
+      DatabaseHelper.columnId: debt[DatabaseHelper.columnId],
+      DatabaseHelper.columnAmount: debt[DatabaseHelper.columnAmount],
+      DatabaseHelper.columnDate: debt[DatabaseHelper.columnDate],
+      DatabaseHelper.columnPaid: 1, // Assuming 1 indicates paid
+    });
+
+    // Delete the debt from the debts table
+    await DatabaseHelper.instance.deleteDebt(debt[DatabaseHelper.columnId]);
+
+    // Refresh the UI
+    setState(() {});
+  }
+
   void _handleIconButtonPress() {
     if (_selectedDate == null) {
       showDialog(
@@ -106,13 +122,20 @@ class _DebtsListScreenState extends State<DebtsListScreen> {
                       children: [
                         Expanded(
                           child: TextField(
-                            style: TextStyle(fontSize: 22.0, color: Colors.black,fontFamily: 'Poppins', ),
+                            style: TextStyle(
+                              fontSize: 22.0,
+                              color: Colors.black,
+                              fontFamily: 'Poppins',
+                            ),
                             controller: _amountController,
                             keyboardType: TextInputType.number,
                             decoration: InputDecoration(
                               hintText: "0",
-                              hintStyle:
-                                  TextStyle(fontSize: 22.0, color: Colors.black,fontFamily: 'Poppins', ),
+                              hintStyle: TextStyle(
+                                fontSize: 22.0,
+                                color: Colors.black,
+                                fontFamily: 'Poppins',
+                              ),
                               border: InputBorder.none,
                             ),
                           ),
@@ -168,17 +191,19 @@ class _DebtsListScreenState extends State<DebtsListScreen> {
                               componentWidgets: Column(
                                 children: [
                                   Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
                                     children: [
                                       PrimaryTextComponent(
                                         textStatement:
                                             "Due ${debt[DatabaseHelper.columnDate]}",
-                                            fontWeight: FontWeight.w400,
+                                        fontWeight: FontWeight.w400,
                                       ),
                                     ],
                                   ),
                                   Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
                                     children: [
                                       PrimaryTextComponent(
                                         textStatement:
@@ -190,10 +215,12 @@ class _DebtsListScreenState extends State<DebtsListScreen> {
                                         style: OutlinedButton.styleFrom(
                                           side: BorderSide(
                                             width: 3.0,
-                                            color: Color.fromRGBO(170, 122, 0, 1),
+                                            color:
+                                                Color.fromRGBO(170, 122, 0, 1),
                                           ),
                                         ),
-                                        onPressed: () {},
+                                        onPressed: () =>
+                                            _handlePaidButtonPress(debt),
                                         child: PrimaryTextComponent(
                                           textStatement: "Paid",
                                           fontWeight: FontWeight.w400,

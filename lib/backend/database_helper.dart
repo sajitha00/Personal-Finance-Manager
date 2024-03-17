@@ -1,12 +1,15 @@
 import 'package:sqflite/sqflite.dart';
+// ignore: depend_on_referenced_packages
 import 'package:path/path.dart';
 
 class DatabaseHelper {
   static const _databaseName = "cashapp.db";
-  static const _databaseVersion = 1;
+  static const _databaseVersion =
+      2; // Increase the version to trigger onUpgrade
 
   static const table = 'user';
   static const debtsTable = 'debts';
+  static const paidTable = 'paid'; // New table name
 
   static const columnId = '_id';
   static const columnEmail = 'email';
@@ -14,6 +17,7 @@ class DatabaseHelper {
   static const columnMobile = 'mobile';
   static const columnAmount = 'amount';
   static const columnDate = 'date';
+  static const columnPaid = 'paid'; // New column for paid status
 
   // Singleton class
   DatabaseHelper._privateConstructor();
@@ -30,7 +34,7 @@ class DatabaseHelper {
   _initDatabase() async {
     String path = join(await getDatabasesPath(), _databaseName);
     return await openDatabase(path,
-        version: _databaseVersion, onCreate: _onCreate);
+        version: _databaseVersion, onCreate: _onCreate, onUpgrade: _onUpgrade);
   }
 
   Future _onCreate(Database db, int version) async {
@@ -49,6 +53,28 @@ class DatabaseHelper {
             $columnDate TEXT NOT NULL
           )
           ''');
+    await db.execute('''
+          CREATE TABLE $paidTable (
+            $columnId INTEGER PRIMARY KEY,
+            $columnAmount REAL NOT NULL,
+            $columnDate TEXT NOT NULL,
+            $columnPaid INTEGER NOT NULL DEFAULT 0
+          )
+          ''');
+  }
+
+  Future _onUpgrade(Database db, int oldVersion, int newVersion) async {
+    if (oldVersion < 2) {
+      // Add the new table or alter existing tables here
+      await db.execute('''
+          CREATE TABLE IF NOT EXISTS $paidTable (
+            $columnId INTEGER PRIMARY KEY,
+            $columnAmount REAL NOT NULL,
+            $columnDate TEXT NOT NULL,
+            $columnPaid INTEGER NOT NULL DEFAULT 0
+          )
+          ''');
+    }
   }
 
   // Insert user
@@ -61,6 +87,12 @@ class DatabaseHelper {
   Future<int?> insertDebt(Map<String, dynamic> row) async {
     Database? db = await instance.database;
     return await db?.insert(debtsTable, row);
+  }
+
+  // Insert paid
+  Future<int?> insertPaid(Map<String, dynamic> row) async {
+    Database? db = await instance.database;
+    return await db?.insert(paidTable, row);
   }
 
   // Fetch user data
@@ -78,5 +110,21 @@ class DatabaseHelper {
   Future<List<Map<String, dynamic>>> fetchAllDebts() async {
     Database? db = await instance.database;
     return await db?.query(debtsTable) ?? [];
+  }
+
+  // Fetch all paid
+  Future<List<Map<String, dynamic>>> fetchAllPaid() async {
+    Database? db = await instance.database;
+    return await db?.query(paidTable) ?? [];
+  }
+
+  Future<void> deleteDebt(int id) async {
+    final db = await instance.database;
+    // Use the null-aware operator to safely call delete
+    await db?.delete(
+      debtsTable,
+      where: '$columnId = ?',
+      whereArgs: [id],
+    );
   }
 }
