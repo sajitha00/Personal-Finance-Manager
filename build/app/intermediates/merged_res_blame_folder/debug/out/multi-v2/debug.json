@@ -353,7 +353,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\yasir\\OneDrive\\Desktop\\New folder (5)\\cashapp\\android\\app\\src\\main\\res\\values\\styles.xml",
+                    "source": "C:\\Users\\yasir\\OneDrive\\Desktop\\cashapp\\android\\app\\src\\main\\res\\values\\styles.xml",
                     "from": {
                         "startLines": "3,14",
                         "startColumns": "4,4",
@@ -953,7 +953,7 @@
             "outputFile": "com.example.ncafe.app-merged_res-12:/values-night-v8_values-night-v8.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\yasir\\OneDrive\\Desktop\\New folder (5)\\cashapp\\android\\app\\src\\main\\res\\values-night\\styles.xml",
+                    "source": "C:\\Users\\yasir\\OneDrive\\Desktop\\cashapp\\android\\app\\src\\main\\res\\values-night\\styles.xml",
                     "from": {
                         "startLines": "3,14",
                         "startColumns": "4,4",
