@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import "package:cashapp/components/BottomMainNavigationBar.dart";
-import "package:cashapp/components/CustomizedAppBar.dart";
+import 'package:cashapp/components/BottomMainNavigationBar.dart';
+import 'package:cashapp/components/CustomizedAppBar.dart';
 import 'package:cashapp/components/PrimaryTextComponent.dart';
 import 'package:cashapp/components/PrimaryContainer.dart';
 import 'package:cashapp/components/SecondaryContainer.dart';
@@ -12,6 +12,19 @@ class CreditScore extends StatefulWidget {
 
   @override
   _CreditScoreState createState() => _CreditScoreState();
+}
+
+Future<double> calculateCreditScore() async {
+  try {
+    final dbHelper = DatabaseHelper.instance;
+    int? debtsCount = await dbHelper.countDebtsRecords();
+    int? paidCount = await dbHelper.countPaidRecords();
+    double paymentHistoryScore = (paidCount ?? 0) / (debtsCount ?? 1) * 100;
+    // Ensure the score does not exceed 100%
+    return paymentHistoryScore > 100 ? 100 : paymentHistoryScore;
+  } catch (e) {
+    throw Exception('Failed to calculate credit score: $e');
+  }
 }
 
 class _CreditScoreState extends State<CreditScore> {
@@ -26,9 +39,13 @@ class _CreditScoreState extends State<CreditScore> {
 
   Future<void> _loadCounts() async {
     final dbHelper = DatabaseHelper.instance;
-    debtsCount = await dbHelper.countDebtsRecords();
-    paidCount = await dbHelper.countPaidRecords();
-    setState(() {});
+    try {
+      debtsCount = await dbHelper.countDebtsRecords();
+      paidCount = await dbHelper.countPaidRecords();
+      setState(() {});
+    } catch (e) {
+      // Handle error
+    }
   }
 
   @override
@@ -42,147 +59,103 @@ class _CreditScoreState extends State<CreditScore> {
         ),
       ),
       body: SingleChildScrollView(
-        child: Stack(
-          children: [
-            SafeArea(
-              child: Padding(
-                padding: EdgeInsets.only(
-                  right: 25.0,
-                  left: 25.0,
-                  bottom: 25.0,
-                ),
-                child: Column(
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 25.0, vertical: 25.0),
+          child: Column(
+            children: [
+              PrimaryTextComponent(
+                textStatement: "This Week",
+                fontSize: 16.0,
+                fontWeight: FontWeight.w400,
+              ),
+              SizedBox(height: 30.0),
+              PrimaryContainer(
+                componentWidgets: Column(
                   children: [
-                    Row(
-                      children: [
-                        SizedBox(
-                          height: 50.0,
-                        ),
-                        PrimaryTextComponent(
-                          textStatement: "This Week",
+                    Text(
+                      "Debts you have paid",
+                      style: TextStyle(
+                          color: Colors.black,
                           fontSize: 16.0,
-                          fontWeight: FontWeight.w400,
-                        ),
-                      ],
+                          fontFamily: 'Poppins',
+                          fontWeight: FontWeight.w400),
                     ),
-                    Column(
-                      children: [
-                        PrimaryContainer(
-                          componentWidgets: Column(
-                            children: [
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    "Debts you have paid",
-                                    style: TextStyle(
-                                        color: Color.fromRGBO(0, 0, 0, 1),
-                                        fontSize: 16.0,
-                                        fontFamily: 'Poppins',
-                                        fontWeight: FontWeight.w400),
-                                  ),
-                                ],
-                              ),
-                              SizedBox(
-                                height: 30.0,
-                              ),
-                              Text(
-                                "${paidCount ?? 0}/${debtsCount ?? 0}",
-                                style: TextStyle(
-                                    color: Color.fromRGBO(0, 0, 0, 1),
-                                    fontSize: 40.0,
-                                    fontFamily: 'Poppins',
-                                    fontWeight: FontWeight.w700),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Row(
-                          children: [
-                            SizedBox(
-                              height: 50.0,
-                            ),
-                            PrimaryTextComponent(
-                              textStatement: "Your Score",
-                              fontSize: 16.0,
-                              fontWeight: FontWeight.w400,
-                            ),
-                          ],
-                        ),
-                        Column(
-                          children: [
-                            PrimaryTextComponent(
-                              textStatement: "90%",
-                              fontFamily: "PoetsenOne",
-                              fontSize: 64.0,
-                              fontWeight: FontWeight.w400,
-                            ),
-                            Divider(
-                              color: Colors.black,
-                              thickness: 1.2,
-                            ),
-                            SizedBox(
-                              height: 10.0,
-                            ),
-                            Container(
-                              height: 74,
-                              width: 335,
-                              decoration: BoxDecoration(
-                                  color: Color.fromRGBO(
-                                    255,
-                                    231,
-                                    191,
-                                    1,
-                                  ),
-                                  borderRadius: BorderRadius.circular(25)),
-                              child: Padding(
-                                padding: const EdgeInsets.all(12.0),
-                                child: Column(
-                                  children: [
-                                    PrimaryTextComponent(
-                                      textStatement:
-                                          "Well done your are keeping up",
-                                      fontSize: 16.0,
-                                      fontWeight: FontWeight.w400,
-                                    ),
-                                    PrimaryTextComponent(
-                                      textStatement: "this week",
-                                      fontSize: 16.0,
-                                      fontWeight: FontWeight.w400,
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                            SizedBox(
-                              height: 60.0,
-                            ),
-                            Text(
-                              "Tip,Pay tour upcoming debts to",
-                              style: TextStyle(
-                                  color: Color.fromRGBO(106, 106, 106, 1),
-                                  fontSize: 14.0,
-                                  fontFamily: 'Poppins',
-                                  fontWeight: FontWeight.w400),
-                            ),
-                            Text(
-                              "get your credit score up!",
-                              style: TextStyle(
-                                  color: Color.fromRGBO(106, 106, 106, 1),
-                                  fontSize: 14.0,
-                                  fontFamily: 'Poppins',
-                                  fontWeight: FontWeight.w400),
-                            ),
-                          ],
-                        ),
-                      ],
+                    SizedBox(height: 30.0),
+                    Text(
+                      "${paidCount ?? 0}/${debtsCount ?? 0}",
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 40.0,
+                          fontFamily: 'Poppins',
+                          fontWeight: FontWeight.w700),
                     ),
                   ],
                 ),
               ),
-            ),
-          ],
+              SizedBox(height: 30.0),
+              PrimaryTextComponent(
+                textStatement: "Your Score",
+                fontSize: 16.0,
+                fontWeight: FontWeight.w400,
+              ),
+              SizedBox(height: 30.0),
+              FutureBuilder<double>(
+                future: calculateCreditScore(),
+                builder:
+                    (BuildContext context, AsyncSnapshot<double> snapshot) {
+                  if (snapshot.connectionState == ConnectionState.waiting) {
+                    return CircularProgressIndicator();
+                  } else if (snapshot.hasError) {
+                    return Text('Error: ${snapshot.error}');
+                  } else {
+                    return PrimaryTextComponent(
+                      textStatement:
+                          "${snapshot.data?.toStringAsFixed(2) ?? '0.00'}%",
+                      fontFamily: "PoetsenOne",
+                      fontSize: 64.0,
+                      fontWeight: FontWeight.w400,
+                    );
+                  }
+                },
+              ),
+              SizedBox(height: 30.0),
+              Divider(color: Colors.black, thickness: 1.2),
+              SizedBox(height: 10.0),
+              Container(
+                height: 74,
+                width: 335,
+                decoration: BoxDecoration(
+                    color: Color.fromRGBO(255, 231, 191, 1),
+                    borderRadius: BorderRadius.circular(25)),
+                child: Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: Column(
+                    children: [
+                      PrimaryTextComponent(
+                        textStatement: "Well done, you are keeping up",
+                        fontSize: 16.0,
+                        fontWeight: FontWeight.w400,
+                      ),
+                      PrimaryTextComponent(
+                        textStatement: "this week",
+                        fontSize: 16.0,
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              SizedBox(height: 60.0),
+              Text(
+                "Tip: Pay your upcoming debts to get your credit score up!",
+                style: TextStyle(
+                    color: Colors.grey,
+                    fontSize: 14.0,
+                    fontFamily: 'Poppins',
+                    fontWeight: FontWeight.w400),
+              ),
+            ],
+          ),
         ),
       ),
     );
