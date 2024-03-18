@@ -1,4 +1,5 @@
 import 'package:sqflite/sqflite.dart';
+// ignore: depend_on_referenced_packages
 import 'package:path/path.dart';
 
 class DatabaseHelper {
@@ -119,5 +120,27 @@ class DatabaseHelper {
   Future<void> deleteDebt(int id) async {
     final db = await instance.database;
     await db?.delete(debtsTable, where: '$columnId = ?', whereArgs: [id]);
+  }
+
+  Future<int?> countDebtsRecords() async {
+    final db = await database;
+    if (db != null) {
+      final List<Map<String, dynamic>> maps =
+          await db.rawQuery('SELECT COUNT(*) as count FROM $debtsTable');
+      return Sqflite.firstIntValue(maps);
+    } else {
+      throw Exception('Database is not initialized');
+    }
+  }
+
+  Future<int?> countPaidRecords() async {
+    final db = await database;
+    if (db != null) {
+      final List<Map<String, dynamic>> maps =
+          await db.rawQuery('SELECT COUNT(*) as count FROM $paidTable');
+      return Sqflite.firstIntValue(maps);
+    } else {
+      throw Exception('Database is not initialized');
+    }
   }
 }
