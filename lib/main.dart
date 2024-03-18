@@ -10,6 +10,9 @@ import 'package:flutter/material.dart';
 import 'package:cashapp/Screens/details.dart';
 import 'package:cashapp/Screens/home.dart';
 import 'package:cashapp/Screens/Pin.dart';
+import 'package:cashapp/utils/paiddebtlist.dart';
+import 'package:cashapp/utils/RecordCount.dart';
+
 import 'package:another_flutter_splash_screen/another_flutter_splash_screen.dart';
 
 import 'package:cashapp/Screens/data_display_screen.dart';
@@ -20,7 +23,7 @@ void main() {
       debugShowCheckedModeBanner: false,
       home: FlutterSplashScreen(
         duration: const Duration(milliseconds: 200),
-        nextScreen: HomeScreen(),
+        nextScreen: CreditScore(),
         splashScreenBody: Welcome(),
       ),
     ),
