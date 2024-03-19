@@ -1,6 +1,8 @@
+import 'package:path_provider/path_provider.dart';
 import 'package:sqflite/sqflite.dart';
 // ignore: depend_on_referenced_packages
 import 'package:path/path.dart';
+import 'dart:io';
 
 class DatabaseHelper {
   static const _databaseName = "cashapp.db";
@@ -18,6 +20,22 @@ class DatabaseHelper {
   static const columnDate = 'date';
   static const columnPaid = 'paid';
 
+  //add details
+
+  static const tableWeeklyBudget = 'weeklyBudgetTable';
+  static const columnBudgetId = 'budget id';
+  static const columnWeekRange = 'weekRange';
+  static const columnBudget = 'budget';
+
+  static const tableDailyIncome = 'dailyIncome';
+  static const columnIncDate = 'date';
+  static const columnIncome = 'income';
+
+  static const tableDailyExpense = 'dailyExpense';
+  static const columnExpDate = 'date';
+  static const columnExpense = 'expense';
+
+
   DatabaseHelper._privateConstructor();
   static final DatabaseHelper instance = DatabaseHelper._privateConstructor();
 
@@ -29,6 +47,7 @@ class DatabaseHelper {
   }
 
   _initDatabase() async {
+    Directory directory = await getApplicationCacheDirectory();
     String path = join(await getDatabasesPath(), _databaseName);
     return await openDatabase(path,
         version: _databaseVersion, onCreate: _onCreate, onUpgrade: _onUpgrade);
@@ -58,6 +77,31 @@ class DatabaseHelper {
             $columnPaid INTEGER NOT NULL DEFAULT 0
           )
           ''');
+
+    //add details
+
+    await db.execute('''
+          CREATE TABLE $tableWeeklyBudget (
+            $columnBudgetId INTEGER PRIMARY KEY,
+            $columnWeekRange TEXT NOT NULL,
+            $columnBudget REAL NOT NULL
+          )
+          ''');
+    await db.execute('''
+          CREATE TABLE $tableDailyIncome (
+            $columnId INTEGER PRIMARY KEY,
+            $columnDate TEXT DEFAULT (DATE('now')),
+            $columnIncome REAL NOT NULL
+          )
+          ''');
+    await db.execute('''
+          CREATE TABLE $tableDailyExpense (
+            $columnId INTEGER PRIMARY KEY,
+            $columnDate TEXT DEFAULT (DATE('now')),
+            $columnExpense REAL NOT NULL
+          )
+          ''');
+
   }
 
   Future _onUpgrade(Database db, int oldVersion, int newVersion) async {

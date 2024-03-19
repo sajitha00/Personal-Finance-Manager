@@ -1,4 +1,4 @@
-#Tue Mar 19 13:51:02 IST 2024
-base.0=F\:\\11\\Personal-Finance-Manager\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
+#Tue Mar 19 20:10:49 IST 2024
+base.0=C\:\\flutter finance\\3_19\\clone\\cashapp\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
 path.0=classes.dex
 renamed.0=classes.dex
