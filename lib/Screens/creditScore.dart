@@ -20,7 +20,6 @@ Future<double> calculateCreditScore() async {
     int? debtsCount = await dbHelper.countDebtsRecords();
     int? paidCount = await dbHelper.countPaidRecords();
     double paymentHistoryScore = (paidCount ?? 0) / (debtsCount ?? 1) * 100;
-    // Ensure the score does not exceed 100%
     return paymentHistoryScore > 100 ? 100 : paymentHistoryScore;
   } catch (e) {
     throw Exception('Failed to calculate credit score: $e');
@@ -108,12 +107,17 @@ class _CreditScoreState extends State<CreditScore> {
                   } else if (snapshot.hasError) {
                     return Text('Error: ${snapshot.error}');
                   } else {
-                    return PrimaryTextComponent(
-                      textStatement:
-                          "${snapshot.data?.toStringAsFixed(2) ?? '0.00'}%",
-                      fontFamily: "PoetsenOne",
-                      fontSize: 64.0,
-                      fontWeight: FontWeight.w400,
+                    return Column(
+                      children: [
+                        PrimaryTextComponent(
+                          textStatement:
+                              "${snapshot.data?.toStringAsFixed(2) ?? '0.00'}%",
+                          fontFamily: "PoetsenOne",
+                          fontSize: 64.0,
+                          fontWeight: FontWeight.w400,
+                        ),
+                        SizedBox(height: 30.0),
+                      ],
                     );
                   }
                 },
@@ -131,10 +135,25 @@ class _CreditScoreState extends State<CreditScore> {
                   padding: const EdgeInsets.all(12.0),
                   child: Column(
                     children: [
-                      PrimaryTextComponent(
-                        textStatement: "Well done, you are keeping up",
-                        fontSize: 16.0,
-                        fontWeight: FontWeight.w400,
+                      FutureBuilder<double>(
+                        future: calculateCreditScore(),
+                        builder: (BuildContext context,
+                            AsyncSnapshot<double> snapshot) {
+                          if (snapshot.connectionState ==
+                              ConnectionState.waiting) {
+                            return CircularProgressIndicator();
+                          } else if (snapshot.hasError) {
+                            return Text('Error: ${snapshot.error}');
+                          } else {
+                            return PrimaryTextComponent(
+                              textStatement: snapshot.data! < 50
+                                  ? "It seems like you're behind. Let's work on that!"
+                                  : "Well done, you are keeping up",
+                              fontSize: 16.0,
+                              fontWeight: FontWeight.w400,
+                            );
+                          }
+                        },
                       ),
                       PrimaryTextComponent(
                         textStatement: "this week",
