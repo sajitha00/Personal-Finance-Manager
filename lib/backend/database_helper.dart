@@ -3,6 +3,7 @@ import 'package:sqflite/sqflite.dart';
 // ignore: depend_on_referenced_packages
 import 'package:path/path.dart';
 import 'dart:io';
+import 'dart:async';
 
 class DatabaseHelper {
   static const _databaseName = "cashapp.db";
@@ -27,11 +28,11 @@ class DatabaseHelper {
   static const columnWeekRange = 'weekRange';
   static const columnBudget = 'budget';
 
-  static const tableDailyIncome = 'dailyIncome';
+  static const tableWeeklyIncome = 'dailyIncome';
   static const columnIncDate = 'date';
   static const columnIncome = 'income';
 
-  static const tableDailyExpense = 'dailyExpense';
+  static const tableWeeklyExpense = 'dailyExpense';
   static const columnExpDate = 'date';
   static const columnExpense = 'expense';
 
@@ -88,14 +89,14 @@ class DatabaseHelper {
           )
           ''');
     await db.execute('''
-          CREATE TABLE $tableDailyIncome (
+          CREATE TABLE $tableWeeklyIncome (
             $columnId INTEGER PRIMARY KEY,
             $columnDate TEXT DEFAULT (DATE('now')),
             $columnIncome REAL NOT NULL
           )
           ''');
     await db.execute('''
-          CREATE TABLE $tableDailyExpense (
+          CREATE TABLE $tableWeeklyExpense (
             $columnId INTEGER PRIMARY KEY,
             $columnDate TEXT DEFAULT (DATE('now')),
             $columnExpense REAL NOT NULL
@@ -187,4 +188,58 @@ class DatabaseHelper {
       throw Exception('Database is not initialized');
     }
   }
+
+  //add details
+
+  //fetch
+  // Future<List<Map<String, dynamic>>> fetchBudget() async {
+  //   Database database = await this.database;
+  // }
+  // Future<List<Map<String, dynamic>>> fetchBudget() async {
+  //   Database? db = await instance.database;
+  //   return await db?.query(debtsTable) ?? [];
+  // }
+
+  Future<int> fetchWeeklyBudget() async {
+    final db = await instance.database;
+    final List<Map<String, dynamic>>? maps = await db?.rawQuery('''
+    SELECT $columnBudget
+    FROM $tableWeeklyBudget
+    WHERE $columnWeekRange = ?
+ ''', [DateTime.now().toIso8601String()]);
+    if (maps != null && maps.isNotEmpty) {
+      return maps.first['budget'];
+    } else {
+      return 0; // or any other default value
+    }
+  }
+
+  Future<int> fetchTotalIncomeForWeek() async {
+    final db = await instance.database;
+    final List<Map<String, dynamic>>? maps = await db?.rawQuery('''
+    SELECT $columnIncome
+    FROM $tableWeeklyIncome
+    WHERE $columnWeekRange = ?
+ ''', [DateTime.now().toIso8601String()]);
+    if (maps != null && maps.isNotEmpty) {
+      return maps.first['income'];
+    } else {
+      return 0; // or any other default value
+    }
+  }
+
+    Future<int> fetchTotalExpenseForWeek() async {
+      final db = await instance.database;
+      final List<Map<double, dynamic>>? maps = (await db?.rawQuery('''
+    SELECT $columnExpense
+    FROM $tableWeeklyExpense
+    WHERE $columnWeekRange = ?
+ ''', [DateTime.now().toIso8601String()]))?.cast<Map<double, dynamic>>();
+      if (maps != null && maps.isNotEmpty) {
+        return maps.first['expense'];
+      } else {
+        return 0; // or any other default value
+      }
+    }
+
 }
