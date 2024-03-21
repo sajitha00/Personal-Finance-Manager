@@ -23,7 +23,7 @@ void main() {
       debugShowCheckedModeBanner: false,
       home: FlutterSplashScreen(
         duration: const Duration(milliseconds: 200),
-        nextScreen: CreditScore(),
+        nextScreen: AddDetails(),
         splashScreenBody: Welcome(),
       ),
     ),

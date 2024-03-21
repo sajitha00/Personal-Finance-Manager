@@ -1,4 +1,3 @@
-
 import 'package:cashapp/model/budget.dart';
 import 'package:flutter/material.dart';
 import "package:cashapp/components/BottomMainNavigationBar.dart";
@@ -8,6 +7,8 @@ import 'package:cashapp/components/PrimaryContainer.dart';
 import 'package:cashapp/components/SecondaryContainer.dart';
 import 'package:cashapp/service/budget_service.dart';
 
+import '../backend/database_helper.dart';
+
 class AddDetails extends StatefulWidget {
   AddDetails({Key? key}) : super(key: key);
 
@@ -16,21 +17,19 @@ class AddDetails extends StatefulWidget {
 }
 
 class _AddDetailsState extends State<AddDetails> {
-
   var _addDetailsBudgetController = TextEditingController();
   var _addDetailsIncomeController = TextEditingController();
   var _addDetailsExpenseController = TextEditingController();
+  var _budgetHelper =
+      DatabaseHelper.instance; // Initialize Database Helper instance
 
   var _budget = Budget();
   var _budgetService = budgetService();
 
-
-  String budget = '';
-  String income = '';
-  String expense = '';
+  late String budget = '';
+  late String income = '';
+  late String expense = '';
   late TextEditingController controller;
-
-
 
   @override
   void initState() {
@@ -51,48 +50,75 @@ class _AddDetailsState extends State<AddDetails> {
   }
 
   Future<String?> addBudget() => showDialog<String>(
-    context: context,
-    builder: (context) => AlertDialog(
-      title: Text('Your Budget'),
-      content: TextField(
-        controller: _addDetailsBudgetController,
-        onSubmitted: (_) => submit,
-        autofocus: true,
-        decoration: InputDecoration(hintText: 'Enter your budget'),
-      ),
-      actions: [
-        TextButton(onPressed: () {
-          _budget.setbudget = _addDetailsBudgetController.text;
-          _budgetService.saveBudget(_budget);
-        },
-            child: Text('Submit')),
-        TextButton(onPressed: () => Navigator.of(context).pop(), child: Text("Clear"))
-      ],
-    ),
-  );
-
+        context: context,
+        builder: (context) => AlertDialog(
+          title: Text('Your Budget'),
+          content: TextField(
+            controller: _addDetailsBudgetController,
+            onSubmitted: (_) => submit,
+            autofocus: true,
+            decoration: InputDecoration(hintText: 'Enter your budget'),
+          ),
+          actions: [
+            TextButton(
+                onPressed: () {
+                  setState(() {
+                    _budget.setbudget = _addDetailsBudgetController.text;
+                    budget = _addDetailsBudgetController
+                        .text; // Update the state variable
+                  });
+                  _budgetService.saveBudget(_budget);
+                  Navigator.of(context).pop(); // This line closes the dialog
+                },
+                child: Text('Submit')),
+            TextButton(
+                onPressed: () {
+                  setState(() {
+                    _budget.setbudget = _addDetailsBudgetController.text;
+                    budget = "";
+                  });
+                  _budgetService.saveBudget(_budget);
+                  Navigator.of(context).pop();
+                },
+                child: Text("Clear"))
+          ],
+        ),
+      );
 
   Future<String?> addIncome() => showDialog<String>(
     context: context,
     builder: (context) => AlertDialog(
       title: Text('Your Income'),
       content: TextField(
-
         controller: _addDetailsIncomeController,
         onSubmitted: (_) => submit,
         autofocus: true,
         decoration: InputDecoration(hintText: 'Enter your income'),
       ),
       actions: [
-        TextButton(onPressed: () {
-          _budget.income = _addDetailsIncomeController.text;
-        },
+        TextButton(
+            onPressed: () {
+              setState(() {
+                _budget.income = _addDetailsIncomeController.text;
+                income = _addDetailsIncomeController.text; // Update the state variable
+              });
+              _budgetService.saveBudget(_budget);
+              Navigator.of(context).pop(); // This line closes the dialog
+            },
             child: Text('Submit')),
-        TextButton(onPressed: () => Navigator.of(context).pop(), child: Text("Clear"))
+        TextButton(
+            onPressed: () {
+              setState(() {
+                _budget.setbudget = _addDetailsIncomeController.text;
+                income = "";
+              });
+              _budgetService.saveBudget(_budget);
+              Navigator.of(context).pop();
+            },
+            child: Text("Clear"))
       ],
     ),
   );
-
 
   Future<String?> addExpense() => showDialog<String>(
     context: context,
@@ -102,23 +128,35 @@ class _AddDetailsState extends State<AddDetails> {
         controller: _addDetailsExpenseController,
         onSubmitted: (_) => submit,
         autofocus: true,
-        decoration: InputDecoration(hintText: 'Enter your expense'),
+        decoration: InputDecoration(hintText: 'Enter your expence'),
       ),
       actions: [
-        TextButton(onPressed: () {
-          _budget.expense = _addDetailsExpenseController.text;
-        },
+        TextButton(
+            onPressed: () {
+              setState(() {
+                _budget.expense = _addDetailsExpenseController.text;
+                expense = _addDetailsExpenseController.text; // Update the state variable
+              });
+              _budgetService.saveBudget(_budget);
+              Navigator.of(context).pop(); // This line closes the dialog
+            },
             child: Text('Submit')),
-        TextButton(onPressed: () => Navigator.of(context).pop(), child: Text("Clear"))
+        TextButton(
+            onPressed: () {
+              setState(() {
+                _budget.expense = _addDetailsExpenseController.text;
+                expense = "";
+              });
+              _budgetService.saveBudget(_budget);
+              Navigator.of(context).pop();
+            },
+            child: Text("Clear"))
       ],
     ),
   );
 
-
-
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       bottomNavigationBar: BottomMainNavigationBar(),
       appBar: PreferredSize(
@@ -164,16 +202,17 @@ class _AddDetailsState extends State<AddDetails> {
                               gradient: LinearGradient(
                                 begin: Alignment.topCenter,
                                 end: Alignment.bottomCenter,
-                                colors: [Color.fromRGBO(0, 125, 13, 1), Color.fromRGBO(170, 122, 0, 1)],
+                                colors: [
+                                  Color.fromRGBO(0, 125, 13, 1),
+                                  Color.fromRGBO(170, 122, 0, 1)
+                                ],
                               ),
                               boxShadow: [
                                 BoxShadow(color: Colors.green, spreadRadius: 3),
                               ],
                             ),
                             child: Padding(
-                              padding: EdgeInsets.only(
-                                  top: 20.0
-                              ),
+                              padding: EdgeInsets.only(top: 20.0),
                               child: Column(
                                 children: [
                                   Text(
@@ -186,9 +225,7 @@ class _AddDetailsState extends State<AddDetails> {
                                   ),
                                   Padding(
                                     padding: const EdgeInsets.only(
-                                        top: 29.5,
-                                        left: 13
-                                    ),
+                                        top: 29.5, left: 13),
                                     child: Row(
                                       children: [
                                         Container(
@@ -196,20 +233,24 @@ class _AddDetailsState extends State<AddDetails> {
                                           height: 42,
                                           decoration: BoxDecoration(
                                             color: Colors.transparent,
-                                            border: Border.all(color: Colors.white),
-                                            borderRadius: BorderRadius.circular(50.0),
+                                            border:
+                                                Border.all(color: Colors.white),
+                                            borderRadius:
+                                                BorderRadius.circular(50.0),
                                           ),
                                           child: Center(
                                             child: TextButton(
-                                              onPressed: () async{
-                                                final budget = await addBudget();
-                                                if (budget == null || budget.isEmpty)
-                                                  return ;
-                          
-                                                setState(() => this.budget = budget);
-                          
+                                              onPressed: () async {
+                                                final budget =
+                                                    await addBudget();
+                                                if (budget == null ||
+                                                    budget.isEmpty) return;
+
+                                                setState(
+                                                    () => this.budget = budget);
                                               },
-                                              child: Text("+",
+                                              child: Text(
+                                                "+",
                                                 style: TextStyle(
                                                   color: Colors.white70,
                                                   fontSize: 18,
@@ -217,8 +258,6 @@ class _AddDetailsState extends State<AddDetails> {
                                                 ),
                                               ),
                                             ),
-                          
-                          
                                           ),
                                         ),
                                         SizedBox(
@@ -229,12 +268,20 @@ class _AddDetailsState extends State<AddDetails> {
                                           height: 42,
                                           decoration: BoxDecoration(
                                             color: Colors.transparent,
-                                            border: Border.all(color: Colors.white),
-                                            borderRadius: BorderRadius.circular(50.0),
+                                            border:
+                                                Border.all(color: Colors.white),
+                                            borderRadius:
+                                                BorderRadius.circular(50.0),
                                           ),
                                           child: Center(
                                             child: TextButton(
-                                              onPressed: (){},
+                                              onPressed: () {
+                                                setState(() {
+                                                  _budget.setbudget = _addDetailsBudgetController.text;
+                                                  budget = "";
+                                                });
+
+                                              },
                                               child: Text("X",
                                                 style: TextStyle(
                                                   color: Colors.white70,
@@ -243,6 +290,7 @@ class _AddDetailsState extends State<AddDetails> {
                                                 ),
                                               ),
                                             ),
+
                                           ),
                                         ),
                                         SizedBox(
@@ -251,20 +299,21 @@ class _AddDetailsState extends State<AddDetails> {
                                         Text(
                                           "Rs ",
                                           style: TextStyle(
-                                              color: Color.fromRGBO(255, 255, 255, 1),
+                                              color: Color.fromRGBO(
+                                                  255, 255, 255, 1),
                                               fontSize: 21.0,
                                               fontFamily: 'Poppins',
                                               fontWeight: FontWeight.w600),
                                         ),
                                         SizedBox(
                                           width: 5,
-                          
                                         ),
                                         Text(
                                           (budget),
                                           style: TextStyle(
-                                              color: Color.fromRGBO(255, 255, 255, 1),
-                                              fontSize: 40.0,
+                                              color: Color.fromRGBO(
+                                                  255, 255, 255, 1),
+                                              fontSize: 25.0,
                                               fontFamily: 'Poppins',
                                               fontWeight: FontWeight.w400),
                                         ),
@@ -328,27 +377,27 @@ class _AddDetailsState extends State<AddDetails> {
                             ),
                             child: Row(
                               children: [
-
-
                                 Container(
                                   width: 42,
                                   height: 42,
                                   decoration: BoxDecoration(
                                     color: Colors.transparent,
-                                    border: Border.all(color: Color.fromRGBO(0, 125, 13, 1),),
+                                    border: Border.all(
+                                      color: Color.fromRGBO(0, 125, 13, 1),
+                                    ),
                                     borderRadius: BorderRadius.circular(50.0),
                                   ),
                                   child: Center(
                                     child: TextButton(
-                                      onPressed: () async{
+                                      onPressed: () async {
                                         final income = await addIncome();
                                         if (income == null || income.isEmpty)
-                                          return ;
+                                          return;
 
                                         setState(() => this.income = income);
-
                                       },
-                                      child: Text("+",
+                                      child: Text(
+                                        "+",
                                         style: TextStyle(
                                           color: Color.fromRGBO(0, 125, 13, 1),
                                           fontSize: 18,
@@ -366,13 +415,22 @@ class _AddDetailsState extends State<AddDetails> {
                                   height: 42,
                                   decoration: BoxDecoration(
                                     color: Colors.transparent,
-                                    border: Border.all(color: Color.fromRGBO(0, 125, 13, 1),),
+                                    border: Border.all(
+                                      color: Color.fromRGBO(0, 125, 13, 1),
+                                    ),
                                     borderRadius: BorderRadius.circular(50.0),
                                   ),
                                   child: Center(
                                     child: TextButton(
-                                      onPressed: (){},
-                                      child: Text("X",
+                                      onPressed: () {
+                                        setState(() {
+                                          _budget.income = _addDetailsIncomeController.text;
+                                          income = "";
+                                        });
+
+                                      },
+                                      child: Text(
+                                        "X",
                                         style: TextStyle(
                                           color: Color.fromRGBO(0, 125, 13, 1),
                                           fontSize: 18,
@@ -395,13 +453,12 @@ class _AddDetailsState extends State<AddDetails> {
                                 ),
                                 SizedBox(
                                   width: 5,
-
                                 ),
                                 Text(
                                   income,
                                   style: TextStyle(
                                       color: Color.fromRGBO(0, 0, 0, 1),
-                                      fontSize: 40.0,
+                                      fontSize: 25.0,
                                       fontFamily: 'Poppins',
                                       fontWeight: FontWeight.w400),
                                 ),
@@ -439,20 +496,21 @@ class _AddDetailsState extends State<AddDetails> {
                                   height: 42,
                                   decoration: BoxDecoration(
                                     color: Colors.transparent,
-                                    border: Border.all(color: Color.fromRGBO(170, 122, 0, 1)),
+                                    border: Border.all(
+                                        color: Color.fromRGBO(170, 122, 0, 1)),
                                     borderRadius: BorderRadius.circular(50.0),
                                   ),
                                   child: Center(
                                     child: TextButton(
-                                      onPressed: () async{
+                                      onPressed: () async {
                                         final expense = await addExpense();
                                         if (expense == null || expense.isEmpty)
-                                          return ;
+                                          return;
 
                                         setState(() => this.expense = expense);
-
                                       },
-                                      child: Text("+",
+                                      child: Text(
+                                        "+",
                                         style: TextStyle(
                                           color: Color.fromRGBO(170, 122, 0, 1),
                                           fontSize: 18,
@@ -470,13 +528,21 @@ class _AddDetailsState extends State<AddDetails> {
                                   height: 42,
                                   decoration: BoxDecoration(
                                     color: Colors.transparent,
-                                    border: Border.all(color: Color.fromRGBO(170, 122, 0, 1)),
+                                    border: Border.all(
+                                        color: Color.fromRGBO(170, 122, 0, 1)),
                                     borderRadius: BorderRadius.circular(50.0),
                                   ),
                                   child: Center(
                                     child: TextButton(
-                                      onPressed: (){},
-                                      child: Text("X",
+                                      onPressed: () {
+                                        setState(() {
+                                          _budget.expense = _addDetailsExpenseController.text;
+                                          expense = "";
+                                        });
+
+                                      },
+                                      child: Text(
+                                        "X",
                                         style: TextStyle(
                                           color: Color.fromRGBO(170, 122, 0, 1),
                                           fontSize: 18,
@@ -499,13 +565,12 @@ class _AddDetailsState extends State<AddDetails> {
                                 ),
                                 SizedBox(
                                   width: 5,
-
                                 ),
                                 Text(
                                   expense,
                                   style: TextStyle(
                                       color: Color.fromRGBO(0, 0, 0, 1),
-                                      fontSize: 40.0,
+                                      fontSize: 25.0,
                                       fontFamily: 'Poppins',
                                       fontWeight: FontWeight.w400),
                                 ),
@@ -519,18 +584,15 @@ class _AddDetailsState extends State<AddDetails> {
                 ),
               ),
             ),
-
-
           ],
         ),
       ),
     );
-
   }
+
   void main() {
     runApp(MaterialApp(
       home: AddDetails(),
     ));
   }
-
 }
