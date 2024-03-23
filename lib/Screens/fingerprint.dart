@@ -1,3 +1,4 @@
+import 'package:cashapp/Screens/Pin.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -121,7 +122,7 @@ class _FingerPrintState extends State<FingerPrint> {
                         Column(
                           children: [
                             Container(
-                              margin: EdgeInsets.only(top: 20.0),
+                              margin: EdgeInsets.only(top: 10.0),
                               child: Text(
                                 "Set your finger on the scanner",
                                 style: TextStyle(
@@ -131,6 +132,30 @@ class _FingerPrintState extends State<FingerPrint> {
                                     fontWeight: FontWeight.w400),
                               ),
                             ),
+                            SizedBox(height: 10,),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text("All Ready Have Pin ?",style:TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 16.0,
+                                    fontFamily: 'Poppins',
+                                    fontWeight: FontWeight.w400),),
+                                TextButton(
+                                  onPressed: (){
+                                    Navigator.of(context).push(MaterialPageRoute(builder: (_) {
+                                      return PinLogin();
+                                    }));
+                                  },
+                                  child: Text("Click here",style: TextStyle(
+                                      color: CupertinoColors.link,
+                                      fontSize: 16.0,
+                                      fontFamily: 'Poppins',
+                                      fontWeight: FontWeight.w600),),
+                                )
+                              ],
+                            ),
+
                           ],
                         ),
                       ],
