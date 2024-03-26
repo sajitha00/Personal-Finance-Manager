@@ -4,7 +4,7 @@
             "outputFile": "com.example.ncafe.app-mergeDebugResources-25:/values-en-rAU/values-en-rAU.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\sajit\\.gradle\\caches\\transforms-3\\bd6ed2c7e88e84edc3bd4c34e07ffec9\\transformed\\appcompat-1.2.0\\res\\values-en-rAU\\values-en-rAU.xml",
+                    "source": "C:\\Users\\HP\\.gradle\\caches\\transforms-3\\bd6ed2c7e88e84edc3bd4c34e07ffec9\\transformed\\appcompat-1.2.0\\res\\values-en-rAU\\values-en-rAU.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -21,24 +21,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\sajit\\.gradle\\caches\\transforms-3\\cd94cf8f2b4ce68bd13b1a0203a741b8\\transformed\\biometric-1.1.0\\res\\values-en-rAU\\values-en-rAU.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,161,251,370,499,637,764,882,1013,1113,1239,1378",
-                        "endColumns": "105,89,118,128,137,126,117,130,99,125,138,119",
-                        "endOffsets": "156,246,365,494,632,759,877,1008,1108,1234,1373,1493"
-                    },
-                    "to": {
-                        "startLines": "36,37,38,39,40,41,42,43,44,45,46,47",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "3481,3587,3677,3796,3925,4063,4190,4308,4439,4539,4665,4804",
-                        "endColumns": "105,89,118,128,137,126,117,130,99,125,138,119",
-                        "endOffsets": "3582,3672,3791,3920,4058,4185,4303,4434,4534,4660,4799,4919"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\sajit\\.gradle\\caches\\transforms-3\\0235b77ff31bafac24f24ba4755d72b8\\transformed\\core-1.10.1\\res\\values-en-rAU\\values-en-rAU.xml",
+                    "source": "C:\\Users\\HP\\.gradle\\caches\\transforms-3\\0235b77ff31bafac24f24ba4755d72b8\\transformed\\core-1.10.1\\res\\values-en-rAU\\values-en-rAU.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
                         "startColumns": "4,4,4,4,4,4,4,4",
@@ -52,6 +35,23 @@
                         "startOffsets": "2762,2858,2960,3059,3158,3262,3365,5007",
                         "endColumns": "95,101,98,98,103,102,115,100",
                         "endOffsets": "2853,2955,3054,3153,3257,3360,3476,5103"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\HP\\.gradle\\caches\\transforms-3\\cd94cf8f2b4ce68bd13b1a0203a741b8\\transformed\\biometric-1.1.0\\res\\values-en-rAU\\values-en-rAU.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,161,251,370,499,637,764,882,1013,1113,1239,1378",
+                        "endColumns": "105,89,118,128,137,126,117,130,99,125,138,119",
+                        "endOffsets": "156,246,365,494,632,759,877,1008,1108,1234,1373,1493"
+                    },
+                    "to": {
+                        "startLines": "36,37,38,39,40,41,42,43,44,45,46,47",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "3481,3587,3677,3796,3925,4063,4190,4308,4439,4539,4665,4804",
+                        "endColumns": "105,89,118,128,137,126,117,130,99,125,138,119",
+                        "endOffsets": "3582,3672,3791,3920,4058,4185,4303,4434,4534,4660,4799,4919"
                     }
                 }
             ]

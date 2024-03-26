@@ -6,8 +6,7 @@ import 'package:cashapp/components/PrimaryTextComponent.dart';
 import 'package:cashapp/components/PrimaryContainer.dart';
 import 'package:cashapp/components/SecondaryContainer.dart';
 import 'package:cashapp/service/budget_service.dart';
-
-import '../backend/database_helper.dart';
+import 'package:cashapp/backend/database_helper.dart';
 
 class AddDetails extends StatefulWidget {
   AddDetails({Key? key}) : super(key: key);
@@ -17,19 +16,21 @@ class AddDetails extends StatefulWidget {
 }
 
 class _AddDetailsState extends State<AddDetails> {
+
   var _addDetailsBudgetController = TextEditingController();
   var _addDetailsIncomeController = TextEditingController();
   var _addDetailsExpenseController = TextEditingController();
-  var _budgetHelper =
-      DatabaseHelper.instance; // Initialize Database Helper instance
 
   var _budget = Budget();
-  var _budgetService = budgetService();
+  var _budgetService = BudgetService();
 
-  late String budget = '';
-  late String income = '';
-  late String expense = '';
+
+  String budget = '';
+  String income = '';
+  String expense = '';
   late TextEditingController controller;
+
+
 
   @override
   void initState() {
@@ -49,114 +50,135 @@ class _AddDetailsState extends State<AddDetails> {
     controller.clear();
   }
 
-  Future<String?> addBudget() => showDialog<String>(
-        context: context,
-        builder: (context) => AlertDialog(
-          title: Text('Your Budget'),
-          content: TextField(
-            controller: _addDetailsBudgetController,
-            onSubmitted: (_) => submit,
-            autofocus: true,
-            decoration: InputDecoration(hintText: 'Enter your budget'),
-          ),
-          actions: [
-            TextButton(
-                onPressed: () {
-                  setState(() {
-                    _budget.setbudget = _addDetailsBudgetController.text;
-                    budget = _addDetailsBudgetController
-                        .text; // Update the state variable
-                  });
-                  _budgetService.saveBudget(_budget);
-                  Navigator.of(context).pop(); // This line closes the dialog
-                },
-                child: Text('Submit')),
-            TextButton(
-                onPressed: () {
-                  setState(() {
-                    _budget.setbudget = _addDetailsBudgetController.text;
-                    budget = "";
-                  });
-                  _budgetService.saveBudget(_budget);
-                  Navigator.of(context).pop();
-                },
-                child: Text("Clear"))
-          ],
+  Future<String?> addBudget() async {
+    String? budget = await showDialog<String>(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text('Your Budget'),
+        content: TextField(
+          controller: _addDetailsBudgetController,
+          onSubmitted: (_) => submit,
+          autofocus: true,
+          decoration: InputDecoration(hintText: 'Enter your budget'),
         ),
-      );
+        actions: [
+          TextButton(
+            onPressed: ()  {
+              final budgetValue = _addDetailsBudgetController.text;
+              final weekRange = DateTime.now().toString(); // Example week range
+              final result =  DatabaseHelper.instance.insertWeeklyBudget({
+                DatabaseHelper.columnWeekRange: weekRange,
+                DatabaseHelper.columnBudget: budgetValue,
+              });
+              if (result != null) {
+                Navigator.of(context).pop(); // Close the dialog
+              } else {
+                // Handle the case where the result is null, if necessary
+              }
+            },
+            child: Text('Submit'),
+          ),
 
-  Future<String?> addIncome() => showDialog<String>(
-    context: context,
-    builder: (context) => AlertDialog(
-      title: Text('Your Income'),
-      content: TextField(
-        controller: _addDetailsIncomeController,
-        onSubmitted: (_) => submit,
-        autofocus: true,
-        decoration: InputDecoration(hintText: 'Enter your income'),
-      ),
-      actions: [
-        TextButton(
-            onPressed: () {
-              setState(() {
-                _budget.income = _addDetailsIncomeController.text;
-                income = _addDetailsIncomeController.text; // Update the state variable
-              });
-              _budgetService.saveBudget(_budget);
-              Navigator.of(context).pop(); // This line closes the dialog
-            },
-            child: Text('Submit')),
-        TextButton(
-            onPressed: () {
-              setState(() {
-                _budget.setbudget = _addDetailsIncomeController.text;
-                income = "";
-              });
-              _budgetService.saveBudget(_budget);
-              Navigator.of(context).pop();
-            },
-            child: Text("Clear"))
-      ],
-    ),
-  );
 
-  Future<String?> addExpense() => showDialog<String>(
-    context: context,
-    builder: (context) => AlertDialog(
-      title: Text('Your Expense'),
-      content: TextField(
-        controller: _addDetailsExpenseController,
-        onSubmitted: (_) => submit,
-        autofocus: true,
-        decoration: InputDecoration(hintText: 'Enter your expence'),
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(), // Close the dialog without any action
+            child: Text("Clear"),
+          ),
+        ],
       ),
-      actions: [
-        TextButton(
-            onPressed: () {
-              setState(() {
-                _budget.expense = _addDetailsExpenseController.text;
-                expense = _addDetailsExpenseController.text; // Update the state variable
+    );
+    return budget;
+  }
+
+
+
+
+  Future<String?> addIncome() async {
+    String? budget = await showDialog<String>(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text('Your Budget'),
+        content: TextField(
+          controller: _addDetailsIncomeController,
+          onSubmitted: (_) => submit,
+          autofocus: true,
+          decoration: InputDecoration(hintText: 'Enter your income'),
+        ),
+        actions: [
+          TextButton(
+            onPressed: ()  {
+              final incomeValue = _addDetailsIncomeController.text;
+              final weekRange = DateTime.now().toString(); // Example week range
+              final result =  DatabaseHelper.instance.insertIncome({
+                DatabaseHelper.columnWeekRange: weekRange,
+                DatabaseHelper.columnIncome: incomeValue,
               });
-              _budgetService.saveBudget(_budget);
-              Navigator.of(context).pop(); // This line closes the dialog
+              if (result != null) {
+                Navigator.of(context).pop(); // Close the dialog
+              } else {
+                // Handle the case where the result is null, if necessary
+              }
             },
-            child: Text('Submit')),
-        TextButton(
-            onPressed: () {
-              setState(() {
-                _budget.expense = _addDetailsExpenseController.text;
-                expense = "";
+            child: Text('Submit'),
+          ),
+
+
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(), // Close the dialog without any action
+            child: Text("Clear"),
+          ),
+        ],
+      ),
+    );
+    return budget;
+  }
+
+
+  Future<String?> addExpense() async {
+    String? budget = await showDialog<String>(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text('Your Expense'),
+        content: TextField(
+          controller: _addDetailsExpenseController,
+          onSubmitted: (_) => submit,
+          autofocus: true,
+          decoration: InputDecoration(hintText: 'Enter your Expense'),
+        ),
+        actions: [
+          TextButton(
+            onPressed: ()  {
+              final expenseValue = _addDetailsExpenseController.text;
+              final weekRange = DateTime.now().toString(); // Example week range
+              final result =  DatabaseHelper.instance.insertExpense({
+                DatabaseHelper.columnWeekRange: weekRange,
+                DatabaseHelper.columnExpense: expenseValue,
               });
-              _budgetService.saveBudget(_budget);
-              Navigator.of(context).pop();
+              if (result != null) {
+                Navigator.of(context).pop(); // Close the dialog
+              } else {
+                // Handle the case where the result is null, if necessary
+              }
             },
-            child: Text("Clear"))
-      ],
-    ),
-  );
+            child: Text('Submit'),
+          ),
+
+
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(), // Close the dialog without any action
+            child: Text("Clear"),
+          ),
+        ],
+      ),
+    );
+    return budget;
+  }
+
+
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       bottomNavigationBar: BottomMainNavigationBar(),
       appBar: PreferredSize(
@@ -202,17 +224,16 @@ class _AddDetailsState extends State<AddDetails> {
                               gradient: LinearGradient(
                                 begin: Alignment.topCenter,
                                 end: Alignment.bottomCenter,
-                                colors: [
-                                  Color.fromRGBO(0, 125, 13, 1),
-                                  Color.fromRGBO(170, 122, 0, 1)
-                                ],
+                                colors: [Color.fromRGBO(0, 125, 13, 1), Color.fromRGBO(170, 122, 0, 1)],
                               ),
                               boxShadow: [
                                 BoxShadow(color: Colors.green, spreadRadius: 3),
                               ],
                             ),
                             child: Padding(
-                              padding: EdgeInsets.only(top: 20.0),
+                              padding: EdgeInsets.only(
+                                  top: 20.0
+                              ),
                               child: Column(
                                 children: [
                                   Text(
@@ -225,7 +246,9 @@ class _AddDetailsState extends State<AddDetails> {
                                   ),
                                   Padding(
                                     padding: const EdgeInsets.only(
-                                        top: 29.5, left: 13),
+                                        top: 29.5,
+                                        left: 13
+                                    ),
                                     child: Row(
                                       children: [
                                         Container(
@@ -233,24 +256,20 @@ class _AddDetailsState extends State<AddDetails> {
                                           height: 42,
                                           decoration: BoxDecoration(
                                             color: Colors.transparent,
-                                            border:
-                                                Border.all(color: Colors.white),
-                                            borderRadius:
-                                                BorderRadius.circular(50.0),
+                                            border: Border.all(color: Colors.white),
+                                            borderRadius: BorderRadius.circular(50.0),
                                           ),
                                           child: Center(
                                             child: TextButton(
-                                              onPressed: () async {
-                                                final budget =
-                                                    await addBudget();
-                                                if (budget == null ||
-                                                    budget.isEmpty) return;
+                                              onPressed: () async{
+                                                final budget = await addBudget();
+                                                if (budget == null || budget.isEmpty)
+                                                  return ;
 
-                                                setState(
-                                                    () => this.budget = budget);
+                                                setState(() => this.budget = budget);
+
                                               },
-                                              child: Text(
-                                                "+",
+                                              child: Text("+",
                                                 style: TextStyle(
                                                   color: Colors.white70,
                                                   fontSize: 18,
@@ -258,6 +277,8 @@ class _AddDetailsState extends State<AddDetails> {
                                                 ),
                                               ),
                                             ),
+
+
                                           ),
                                         ),
                                         SizedBox(
@@ -268,20 +289,12 @@ class _AddDetailsState extends State<AddDetails> {
                                           height: 42,
                                           decoration: BoxDecoration(
                                             color: Colors.transparent,
-                                            border:
-                                                Border.all(color: Colors.white),
-                                            borderRadius:
-                                                BorderRadius.circular(50.0),
+                                            border: Border.all(color: Colors.white),
+                                            borderRadius: BorderRadius.circular(50.0),
                                           ),
                                           child: Center(
                                             child: TextButton(
-                                              onPressed: () {
-                                                setState(() {
-                                                  _budget.setbudget = _addDetailsBudgetController.text;
-                                                  budget = "";
-                                                });
-
-                                              },
+                                              onPressed: (){},
                                               child: Text("X",
                                                 style: TextStyle(
                                                   color: Colors.white70,
@@ -290,7 +303,6 @@ class _AddDetailsState extends State<AddDetails> {
                                                 ),
                                               ),
                                             ),
-
                                           ),
                                         ),
                                         SizedBox(
@@ -299,21 +311,20 @@ class _AddDetailsState extends State<AddDetails> {
                                         Text(
                                           "Rs ",
                                           style: TextStyle(
-                                              color: Color.fromRGBO(
-                                                  255, 255, 255, 1),
+                                              color: Color.fromRGBO(255, 255, 255, 1),
                                               fontSize: 21.0,
                                               fontFamily: 'Poppins',
                                               fontWeight: FontWeight.w600),
                                         ),
                                         SizedBox(
                                           width: 5,
+
                                         ),
                                         Text(
-                                          (budget),
+                                          budget,
                                           style: TextStyle(
-                                              color: Color.fromRGBO(
-                                                  255, 255, 255, 1),
-                                              fontSize: 25.0,
+                                              color: Color.fromRGBO(255, 255, 255, 1),
+                                              fontSize: 40.0,
                                               fontFamily: 'Poppins',
                                               fontWeight: FontWeight.w400),
                                         ),
@@ -377,27 +388,27 @@ class _AddDetailsState extends State<AddDetails> {
                             ),
                             child: Row(
                               children: [
+
+
                                 Container(
                                   width: 42,
                                   height: 42,
                                   decoration: BoxDecoration(
                                     color: Colors.transparent,
-                                    border: Border.all(
-                                      color: Color.fromRGBO(0, 125, 13, 1),
-                                    ),
+                                    border: Border.all(color: Color.fromRGBO(0, 125, 13, 1),),
                                     borderRadius: BorderRadius.circular(50.0),
                                   ),
                                   child: Center(
                                     child: TextButton(
-                                      onPressed: () async {
+                                      onPressed: () async{
                                         final income = await addIncome();
                                         if (income == null || income.isEmpty)
-                                          return;
+                                          return ;
 
                                         setState(() => this.income = income);
+
                                       },
-                                      child: Text(
-                                        "+",
+                                      child: Text("+",
                                         style: TextStyle(
                                           color: Color.fromRGBO(0, 125, 13, 1),
                                           fontSize: 18,
@@ -415,22 +426,13 @@ class _AddDetailsState extends State<AddDetails> {
                                   height: 42,
                                   decoration: BoxDecoration(
                                     color: Colors.transparent,
-                                    border: Border.all(
-                                      color: Color.fromRGBO(0, 125, 13, 1),
-                                    ),
+                                    border: Border.all(color: Color.fromRGBO(0, 125, 13, 1),),
                                     borderRadius: BorderRadius.circular(50.0),
                                   ),
                                   child: Center(
                                     child: TextButton(
-                                      onPressed: () {
-                                        setState(() {
-                                          _budget.income = _addDetailsIncomeController.text;
-                                          income = "";
-                                        });
-
-                                      },
-                                      child: Text(
-                                        "X",
+                                      onPressed: (){},
+                                      child: Text("X",
                                         style: TextStyle(
                                           color: Color.fromRGBO(0, 125, 13, 1),
                                           fontSize: 18,
@@ -453,12 +455,13 @@ class _AddDetailsState extends State<AddDetails> {
                                 ),
                                 SizedBox(
                                   width: 5,
+
                                 ),
                                 Text(
                                   income,
                                   style: TextStyle(
                                       color: Color.fromRGBO(0, 0, 0, 1),
-                                      fontSize: 25.0,
+                                      fontSize: 40.0,
                                       fontFamily: 'Poppins',
                                       fontWeight: FontWeight.w400),
                                 ),
@@ -496,21 +499,20 @@ class _AddDetailsState extends State<AddDetails> {
                                   height: 42,
                                   decoration: BoxDecoration(
                                     color: Colors.transparent,
-                                    border: Border.all(
-                                        color: Color.fromRGBO(170, 122, 0, 1)),
+                                    border: Border.all(color: Color.fromRGBO(170, 122, 0, 1)),
                                     borderRadius: BorderRadius.circular(50.0),
                                   ),
                                   child: Center(
                                     child: TextButton(
-                                      onPressed: () async {
+                                      onPressed: () async{
                                         final expense = await addExpense();
                                         if (expense == null || expense.isEmpty)
-                                          return;
+                                          return ;
 
                                         setState(() => this.expense = expense);
+
                                       },
-                                      child: Text(
-                                        "+",
+                                      child: Text("+",
                                         style: TextStyle(
                                           color: Color.fromRGBO(170, 122, 0, 1),
                                           fontSize: 18,
@@ -528,21 +530,13 @@ class _AddDetailsState extends State<AddDetails> {
                                   height: 42,
                                   decoration: BoxDecoration(
                                     color: Colors.transparent,
-                                    border: Border.all(
-                                        color: Color.fromRGBO(170, 122, 0, 1)),
+                                    border: Border.all(color: Color.fromRGBO(170, 122, 0, 1)),
                                     borderRadius: BorderRadius.circular(50.0),
                                   ),
                                   child: Center(
                                     child: TextButton(
-                                      onPressed: () {
-                                        setState(() {
-                                          _budget.expense = _addDetailsExpenseController.text;
-                                          expense = "";
-                                        });
-
-                                      },
-                                      child: Text(
-                                        "X",
+                                      onPressed: (){},
+                                      child: Text("X",
                                         style: TextStyle(
                                           color: Color.fromRGBO(170, 122, 0, 1),
                                           fontSize: 18,
@@ -565,12 +559,13 @@ class _AddDetailsState extends State<AddDetails> {
                                 ),
                                 SizedBox(
                                   width: 5,
+
                                 ),
                                 Text(
                                   expense,
                                   style: TextStyle(
                                       color: Color.fromRGBO(0, 0, 0, 1),
-                                      fontSize: 25.0,
+                                      fontSize: 40.0,
                                       fontFamily: 'Poppins',
                                       fontWeight: FontWeight.w400),
                                 ),
@@ -584,15 +579,34 @@ class _AddDetailsState extends State<AddDetails> {
                 ),
               ),
             ),
+
+
           ],
         ),
       ),
     );
-  }
 
+  }
   void main() {
     runApp(MaterialApp(
       home: AddDetails(),
     ));
   }
+
+}
+
+
+class BudgetService{
+
+  saveBudget(Budget budget) async {
+    print(budget.setbudget);
+    print(budget.income);
+    print(budget.expense);
+  }
+}
+
+class Budget{
+  late String setbudget;
+  late String income;
+  late String expense;
 }
