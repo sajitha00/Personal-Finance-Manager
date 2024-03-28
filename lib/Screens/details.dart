@@ -6,33 +6,10 @@ import 'package:cashapp/components/CustomizedAppBar.dart';
 import 'package:cashapp/components/PrimaryContainer.dart';
 import 'package:cashapp/components/SecondaryContainer.dart';
 
-import 'package:cashapp/backend/database_helper.dart';
-import 'package:cashapp/Screens/addDetails.dart';
-import 'package:cashapp/service/budget_service.dart';
-import 'package:cashapp/model/budget.dart';
+class DetailsScreen extends StatelessWidget {
+  DetailsScreen({super.key});
 
-class DetailsScreen extends StatefulWidget {
-  @override
-  _DetailsScreenState createState() => _DetailsScreenState();
-}
-
-class _DetailsScreenState extends State<DetailsScreen> {
-  int weeklyBudget = 0;
-  int totalIncome = 0;
-  int totalExpense = 0;
-
-  @override
-  void initState() {
-    super.initState();
-    fetchData();
-  }
-
-  void fetchData() async {
-    weeklyBudget = await DatabaseHelper.instance.fetchWeeklyBudget();
-    totalIncome = await DatabaseHelper.instance.fetchTotalIncomeForWeek();
-    totalExpense = await DatabaseHelper.instance.fetchTotalExpenseForWeek();
-    setState(() {}); // Update the UI
-  }
+  void handleIndex(int i) {}
 
   @override
   Widget build(BuildContext context) {
@@ -54,7 +31,6 @@ class _DetailsScreenState extends State<DetailsScreen> {
                 ),
                 child: Column(
                   children: [
-
                     Row(
                       children: [
                         PrimaryTextComponent(
@@ -66,7 +42,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                           width: 5.0,
                         ),
                         PrimaryTextComponent(
-                          textStatement: '$weeklyBudget',
+                          textStatement: "124,500",
                           fontFamily: "PoetsenOne",
                           fontSize: 64.0,
                           fontWeight: FontWeight.w400,

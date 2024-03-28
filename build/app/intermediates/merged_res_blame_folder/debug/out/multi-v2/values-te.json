@@ -4,7 +4,24 @@
             "outputFile": "com.example.ncafe.app-mergeDebugResources-25:/values-te/values-te.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\sajit\\.gradle\\caches\\transforms-3\\bd6ed2c7e88e84edc3bd4c34e07ffec9\\transformed\\appcompat-1.2.0\\res\\values-te\\values-te.xml",
+                    "source": "C:\\Users\\HP\\.gradle\\caches\\transforms-3\\0235b77ff31bafac24f24ba4755d72b8\\transformed\\core-1.10.1\\res\\values-te\\values-te.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,157,265,367,468,574,681,805",
+                        "endColumns": "101,107,101,100,105,106,123,100",
+                        "endOffsets": "152,260,362,463,569,676,800,901"
+                    },
+                    "to": {
+                        "startLines": "29,30,31,32,33,34,35,49",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "2845,2947,3055,3157,3258,3364,3471,5193",
+                        "endColumns": "101,107,101,100,105,106,123,100",
+                        "endOffsets": "2942,3050,3152,3253,3359,3466,3590,5289"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\HP\\.gradle\\caches\\transforms-3\\bd6ed2c7e88e84edc3bd4c34e07ffec9\\transformed\\appcompat-1.2.0\\res\\values-te\\values-te.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -21,7 +38,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\sajit\\.gradle\\caches\\transforms-3\\cd94cf8f2b4ce68bd13b1a0203a741b8\\transformed\\biometric-1.1.0\\res\\values-te\\values-te.xml",
+                    "source": "C:\\Users\\HP\\.gradle\\caches\\transforms-3\\cd94cf8f2b4ce68bd13b1a0203a741b8\\transformed\\biometric-1.1.0\\res\\values-te\\values-te.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4",
@@ -35,23 +52,6 @@
                         "startOffsets": "3595,3712,3803,3922,4054,4180,4330,4451,4584,4684,4839,4979",
                         "endColumns": "116,90,118,131,125,149,120,132,99,154,139,132",
                         "endOffsets": "3707,3798,3917,4049,4175,4325,4446,4579,4679,4834,4974,5107"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\sajit\\.gradle\\caches\\transforms-3\\0235b77ff31bafac24f24ba4755d72b8\\transformed\\core-1.10.1\\res\\values-te\\values-te.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9",
-                        "startColumns": "4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,157,265,367,468,574,681,805",
-                        "endColumns": "101,107,101,100,105,106,123,100",
-                        "endOffsets": "152,260,362,463,569,676,800,901"
-                    },
-                    "to": {
-                        "startLines": "29,30,31,32,33,34,35,49",
-                        "startColumns": "4,4,4,4,4,4,4,4",
-                        "startOffsets": "2845,2947,3055,3157,3258,3364,3471,5193",
-                        "endColumns": "101,107,101,100,105,106,123,100",
-                        "endOffsets": "2942,3050,3152,3253,3359,3466,3590,5289"
                     }
                 }
             ]
