@@ -1,6 +1,5 @@
 import "package:cashapp/Screens/addDetails.dart";
 import "package:cashapp/Screens/creditScore.dart";
-import "package:cashapp/Screens/debts.dart";
 import "package:cashapp/Screens/details.dart";
 import "package:cashapp/Screens/report.dart";
 import "package:cashapp/Screens/user.dart";

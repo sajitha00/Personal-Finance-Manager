@@ -1,18 +1,14 @@
-import 'package:cashapp/Screens/addDetails.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:sqflite/sqflite.dart';
-// ignore: depend_on_referenced_packages
 import 'package:path/path.dart';
-import 'dart:io';
-import 'dart:async';
 
 class DatabaseHelper {
   static const _databaseName = "cashapp.db";
-  static const _databaseVersion = 2;
+  static const _databaseVersion = 1;
 
   static const table = 'user';
   static const debtsTable = 'debts';
   static const paidTable = 'paid';
+  static const weeklyBudgetTable = 'weekly_budget';
 
   static const columnId = '_id';
   static const columnEmail = 'email';
@@ -21,33 +17,8 @@ class DatabaseHelper {
   static const columnAmount = 'amount';
   static const columnDate = 'date';
   static const columnPaid = 'paid';
-
-  //add details
-
-  static final tableWeeklyBudget = 'tableWeeklyBudget';
-  static final columnBudgetId = 'budget_id';
-  static final columnWeekRange = 'weekRange';
-  static final columnBudget = 'budget';
-
-  static final tableWeeklyIncome = 'dailyIncome';
-  static final columnIncId = 'incId';
-  static final columnIncDate = 'date';
-  static final columnIncome = 'income';
-
-  static final tableWeeklyExpense = 'dailyExpense';
-  static final columnExpId = 'expId';
-  static final columnExpDate = 'date';
-  static final columnExpense = 'expense';
-
-  _initDatabase() async {
-    String path = join(await getDatabasesPath(), _databaseName);
-    print("Database path: $path"); // Debug print
-    var database = await openDatabase(path,
-        version: _databaseVersion, onCreate: _onCreate, onUpgrade: _onUpgrade);
-    print("Database initialized"); // Debug print
-    return database;
-  }
-
+  static const columnBudgetAmount = 'budget_amount';
+  static const columnWeekRange = 'week_range';
 
   DatabaseHelper._privateConstructor();
   static final DatabaseHelper instance = DatabaseHelper._privateConstructor();
@@ -59,7 +30,11 @@ class DatabaseHelper {
     return _database;
   }
 
-
+  _initDatabase() async {
+    String path = join(await getDatabasesPath(), _databaseName);
+    return await openDatabase(path,
+        version: _databaseVersion, onCreate: _onCreate, onUpgrade: _onUpgrade);
+  }
 
   Future _onCreate(Database db, int version) async {
     await db.execute('''
@@ -85,29 +60,14 @@ class DatabaseHelper {
             $columnPaid INTEGER NOT NULL DEFAULT 0
           )
           ''');
-    //add details
-
     await db.execute('''
-          CREATE TABLE $tableWeeklyBudget (
-            $columnBudgetId INTEGER PRIMARY KEY AUTOINCREMENT,
-            $columnWeekRange TEXT NOT NULL,
-            $columnBudget REAL NOT NULL
-          )
-          ''');
-    await db.execute('''
-          CREATE TABLE $tableWeeklyIncome (
-            $columnIncId INTEGER PRIMARY KEY AUTOINCREMENT,
-            $columnIncDate TEXT NOT NULL,
-            $columnIncome REAL NOT NULL
-          )
-          ''');
-    await db.execute('''
-          CREATE TABLE $tableWeeklyExpense (
-            $columnExpId INTEGER PRIMARY KEY AUTOINCREMENT,
-            $columnExpDate TEXT NOT NULL,
-            $columnExpense REAL NOT NULL
-          )
-          ''');
+            CREATE TABLE $weeklyBudgetTable (
+              $columnId INTEGER PRIMARY KEY,
+              $columnBudgetAmount REAL NOT NULL,
+              $columnWeekRange int NOT NULL,
+              $columnDate TEXT NOT NULL
+            )
+            ''');
   }
 
   Future _onUpgrade(Database db, int oldVersion, int newVersion) async {
@@ -137,7 +97,7 @@ class DatabaseHelper {
     Database? db = await instance.database;
     final id = row[columnId];
     final existingPaid =
-    await db?.query(paidTable, where: '$columnId = ?', whereArgs: [id]);
+        await db?.query(paidTable, where: '$columnId = ?', whereArgs: [id]);
     if (existingPaid != null && existingPaid.isNotEmpty) {
       // Update existing record
       return await db
@@ -176,7 +136,7 @@ class DatabaseHelper {
     final db = await database;
     if (db != null) {
       final List<Map<String, dynamic>> maps =
-      await db.rawQuery('SELECT COUNT(*) as count FROM $debtsTable');
+          await db.rawQuery('SELECT COUNT(*) as count FROM $debtsTable');
       return Sqflite.firstIntValue(maps);
     } else {
       throw Exception('Database is not initialized');
@@ -187,26 +147,10 @@ class DatabaseHelper {
     final db = await database;
     if (db != null) {
       final List<Map<String, dynamic>> maps =
-      await db.rawQuery('SELECT COUNT(*) as count FROM $paidTable');
+          await db.rawQuery('SELECT COUNT(*) as count FROM $paidTable');
       return Sqflite.firstIntValue(maps);
     } else {
       throw Exception('Database is not initialized');
     }
-  }
-
-  //add details
-  Future<int?> insertWeeklyBudget(Map<String, dynamic> row) async {
-    Database? db = await instance.database;
-    return await db?.insert(tableWeeklyBudget, row);
-  }
-
-  Future<int?> insertIncome(Map<String, dynamic> row) async {
-    Database? db = await instance.database;
-    return await db?.insert(tableWeeklyIncome, row);
-  }
-
-  Future<int?> insertExpense(Map<String, dynamic> row) async {
-    Database? db = await instance.database;
-    return await db?.insert(tableWeeklyExpense, row);
   }
 }
