@@ -17,7 +17,6 @@
 .idea/
 
 # Visual Studio Code related
-.vscode/
 
 # Flutter/Dart/Pub related
 **/doc/api/
@@ -73,3 +72,7 @@
 # Ignore large files tracked by Git LFS
 build/app/intermediates/assets/debug/flutter_assets/*
 
+temp_auto_push.bat
+temp_interactive_push.bat
+.gitignore
+branch_structure.json
